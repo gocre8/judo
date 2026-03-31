@@ -1,0 +1,58 @@
+import { moves } from "@/data/moves";
+import { LibraryFilters, Move, MoveProgressMap } from "@/lib/types";
+
+export const defaultFilters: LibraryFilters = {
+  search: "",
+  category: "All",
+  difficulty: "All",
+  situation: "All",
+  favoritesOnly: false,
+  studiedOnly: false,
+};
+
+export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress: MoveProgressMap) {
+  const searchNeedle = filters.search.trim().toLowerCase();
+
+  return allMoves.filter((move) => {
+    const moveProgress = progress[move.id];
+    const matchesSearch =
+      searchNeedle.length === 0 ||
+      [
+        move.name,
+        move.japaneseName,
+        move.shortDescription,
+        move.category,
+        ...move.situationTags,
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(searchNeedle);
+    const matchesCategory = filters.category === "All" || move.category === filters.category;
+    const matchesDifficulty =
+      filters.difficulty === "All" || move.difficulty === filters.difficulty;
+    const matchesSituation =
+      filters.situation === "All" || move.situationTags.includes(filters.situation);
+    const matchesFavorite = !filters.favoritesOnly || moveProgress?.favorite;
+    const matchesStudied = !filters.studiedOnly || moveProgress?.studied;
+
+    return (
+      matchesSearch &&
+      matchesCategory &&
+      matchesDifficulty &&
+      matchesSituation &&
+      matchesFavorite &&
+      matchesStudied
+    );
+  });
+}
+
+export function getProgressSummary(progress: MoveProgressMap) {
+  const values = Object.values(progress);
+
+  return {
+    totalMoves: moves.length,
+    favorites: values.filter((entry) => entry.favorite).length,
+    studied: values.filter((entry) => entry.studied).length,
+    started: values.filter((entry) => entry.favorite || entry.studied).length,
+  };
+}
