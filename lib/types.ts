@@ -1,5 +1,15 @@
 export type MoveCategory = "Throw" | "Hold-down" | "Choke" | "Arm lock";
 export type MoveDifficulty = "Beginner" | "Intermediate";
+export type MoveSection = "Nage-waza" | "Katame-waza";
+export type MoveFamily =
+  | "Te-waza"
+  | "Koshi-waza"
+  | "Ashi-waza"
+  | "Ma-sutemi-waza"
+  | "Yoko-sutemi-waza"
+  | "Osaekomi-waza"
+  | "Shime-waza"
+  | "Kansetsu-waza";
 
 export type DiagramMarker = {
   label: string;
@@ -25,6 +35,8 @@ export type Move = {
   name: string;
   japaneseName: string;
   imageSrc?: string;
+  section: MoveSection;
+  family: MoveFamily;
   category: MoveCategory;
   difficulty: MoveDifficulty;
   situationTags: string[];
@@ -35,8 +47,14 @@ export type Move = {
   safetyNotes: string[];
   keyPrinciples: string[];
   relatedMoveIds: string[];
+  alternativeMoveIds: string[];
   diagram: MoveDiagram;
   resources: MoveResource[];
+};
+
+export type RoadmapGroup = {
+  family: MoveFamily;
+  moves: string[];
 };
 
 export type UserMoveProgress = {

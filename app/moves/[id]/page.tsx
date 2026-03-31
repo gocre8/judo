@@ -43,19 +43,23 @@ export default async function MovePage({ params }: MovePageProps) {
   }
 
   const relatedMoves = move.relatedMoveIds.map((relatedId) => moveMap[relatedId]).filter(Boolean);
+  const alternativeMoves = move.alternativeMoveIds
+    .map((relatedId) => moveMap[relatedId])
+    .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
 
   return (
     <div className="section">
-      <Link className="back-link" href="/library">
-        Back to library
-      </Link>
+      <div className="mobile-detail-image">
+        <TechniqueDiagram move={move} />
+      </div>
 
       <section className="detail-hero">
         <div className="detail-hero__top">
           <div>
             <h1>{move.name}</h1>
             <p className="muted-label">{move.japaneseName}</p>
+            <p className="muted-label">{move.section} · {move.family}</p>
           </div>
         </div>
         <div className="meta-row">
@@ -100,7 +104,9 @@ export default async function MovePage({ params }: MovePageProps) {
         </div>
 
         <div className="section">
-          <TechniqueDiagram move={move} />
+          <div className="desktop-detail-image">
+            <TechniqueDiagram move={move} />
+          </div>
 
           <article className="detail-panel">
             <h3>Mistakes</h3>
@@ -118,6 +124,17 @@ export default async function MovePage({ params }: MovePageProps) {
                 <li key={note}>{note}</li>
               ))}
             </ul>
+          </article>
+
+          <article className="detail-panel">
+            <h3>Alternates</h3>
+            <div className="quick-links">
+              {alternativeMoves.map((relatedMove) => (
+                <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                  {relatedMove.name}
+                </Link>
+              ))}
+            </div>
           </article>
 
           <article className="detail-panel">

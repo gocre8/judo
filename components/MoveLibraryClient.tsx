@@ -2,6 +2,7 @@
 
 import { useDeferredValue, useState } from "react";
 import { MoveCard } from "@/components/MoveCard";
+import { CurriculumBoard } from "@/components/CurriculumBoard";
 import { moves } from "@/data/moves";
 import { useMoveProgress } from "@/hooks/useMoveProgress";
 import { defaultFilters, filterMoves } from "@/lib/move-utils";
@@ -110,6 +111,8 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
           </button>
         </div>
       </section>
+
+      <CurriculumBoard />
 
       {filteredMoves.length > 0 ? (
         <section className="move-grid">

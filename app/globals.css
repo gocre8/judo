@@ -285,6 +285,14 @@ p {
   background: #fff;
 }
 
+.mobile-detail-image {
+  display: none;
+}
+
+.desktop-detail-image {
+  display: block;
+}
+
 .move-card__top,
 .detail-hero__top {
   display: flex;
@@ -368,6 +376,26 @@ p {
 .resource-list {
   display: grid;
   gap: 10px;
+}
+
+.curriculum-board,
+.curriculum-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.curriculum-row {
+  display: grid;
+  gap: 6px;
+}
+
+.curriculum-row strong {
+  font-family: var(--display-font);
+  font-size: 0.95rem;
+}
+
+.curriculum-row p {
+  font-size: 0.95rem;
 }
 
 .resource-link {
@@ -512,5 +540,17 @@ p {
   .progress-grid,
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mobile-detail-image {
+    display: block;
+  }
+
+  .desktop-detail-image {
+    display: none;
+  }
+
+  .mobile-detail-image .detail-image {
+    margin-top: 0;
   }
 }

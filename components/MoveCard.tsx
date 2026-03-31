@@ -15,6 +15,7 @@ export function MoveCard({ move, progress }: MoveCardProps) {
         <div>
           <h3>{move.name}</h3>
           <p className="muted-label">{move.japaneseName}</p>
+          <p className="muted-label">{move.family}</p>
         </div>
         <div className="pill-row" aria-label="Progress markers">
           {progress?.favorite ? <span>Favorite</span> : null}
