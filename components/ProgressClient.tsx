@@ -9,6 +9,7 @@ import { getProgressSummary } from "@/lib/move-utils";
 export function ProgressClient() {
   const { progress, ready } = useMoveProgress();
   const summary = getProgressSummary(progress);
+  const hasSavedData = Object.keys(progress).length > 0;
 
   const favorites = moves.filter((move) => progress[move.id]?.favorite);
   const studied = moves
@@ -24,12 +25,29 @@ export function ProgressClient() {
     .filter(([, value]) => value.lastViewedAt)
     .sort(([, left], [, right]) => (right.lastViewedAt ?? "").localeCompare(left.lastViewedAt ?? ""))[0]?.[0];
 
+  const exportPayload = JSON.stringify(
+    {
+      exportedAt: new Date().toISOString(),
+      progress,
+    },
+    null,
+    2,
+  );
+  const exportHref = hasSavedData
+    ? `data:application/json;charset=utf-8,${encodeURIComponent(exportPayload)}`
+    : "";
+
   return (
     <div className="section">
       <section className="progress-summary">
         <span>Started {summary.started}</span>
         <span>Pinned {summary.favorites}</span>
         <span>Studied {summary.studied}</span>
+        {hasSavedData ? (
+          <a className="chip" href={exportHref} download="judo-jiujitsu-notes.json">
+            Export notes
+          </a>
+        ) : null}
       </section>
 
       <section className="detail-panel quick-resume">
@@ -43,6 +61,7 @@ export function ProgressClient() {
             <span className="muted-label">{ready ? "No recent move" : "Loading..."}</span>
           )}
         </div>
+        <p className="muted-label">Export saves your pinned moves, studied moves, and class notes.</p>
       </section>
 
       <section className="progress-grid">

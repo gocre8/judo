@@ -4,8 +4,11 @@ import { HomeStats } from "@/components/HomeStats";
 export default function HomePage() {
   return (
     <div className="section">
-      <section className="detail-hero">
-        <h1>Judo Study</h1>
+      <section className="compact-hero">
+        <div>
+          <h1>Judo / Jiujitsu</h1>
+          <p className="muted-label">Study library, linked moves, and class notes.</p>
+        </div>
         <div className="quick-links">
           <Link className="action-pill" href="/library">
             Library

@@ -131,25 +131,39 @@ export default async function MovePage({ params }: MovePageProps) {
           </article>
 
           <article className="detail-panel">
-            <h3>Alternates</h3>
-            <div className="quick-links">
-              {alternativeMoves.map((relatedMove) => (
-                <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
-                  {relatedMove.name}
-                </Link>
-              ))}
+            <div className="section-heading">
+              <div>
+                <h3>Connections</h3>
+                <p className="muted-label">Moves that pair well, branch off, or solve a reaction.</p>
+              </div>
             </div>
-          </article>
-
-          <article className="detail-panel">
-            <h3>Related</h3>
-            <div className="quick-links">
-              {relatedMoves.map((relatedMove) => (
-                <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
-                  {relatedMove.name}
-                </Link>
-              ))}
-            </div>
+            {alternativeMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Try next</strong>
+                <div className="quick-links">
+                  {alternativeMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {relatedMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Works with</strong>
+                <div className="quick-links">
+                  {relatedMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {alternativeMoves.length === 0 && relatedMoves.length === 0 ? (
+              <p className="muted-label">Linked move chains are still being added for this entry.</p>
+            ) : null}
           </article>
 
           {move.resources.length > 0 ? (

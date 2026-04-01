@@ -111,6 +111,7 @@ h3,
 .panel,
 .move-card,
 .detail-hero,
+.compact-hero,
 .detail-panel,
 .stat-card,
 .filter-panel,
@@ -363,6 +364,15 @@ p {
   gap: 8px;
 }
 
+.compact-hero {
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 .detail-hero .meta-row,
 .detail-hero .detail-actions {
   gap: 8px;
@@ -432,6 +442,16 @@ p {
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.connection-group {
+  display: grid;
+  gap: 8px;
+}
+
+.connection-group strong {
+  font-family: var(--display-font);
+  font-size: 0.95rem;
 }
 
 .resource-link {
@@ -574,6 +594,7 @@ p {
   }
 
   .hero,
+  .compact-hero,
   .filter-panel,
   .detail-hero,
   .detail-panel,
@@ -599,5 +620,10 @@ p {
 
   .mobile-detail-image .detail-image {
     margin-top: 0;
+  }
+
+  .compact-hero {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
