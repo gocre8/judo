@@ -454,6 +454,138 @@ Sections to support:
   - IBJJF positional baseline
   - Editorial summary for teaching language
 - reviewStatus: `clarified`
+
+#### Leg Drag
+
+- practice: `Jiu-Jitsu`
+- section: `Passing`
+- family: `Open guard passing`
+- englishName: `Leg Drag`
+- positionContext: `Top open guard`
+- setup: Pull both legs across your center line so the opponent's hips twist away, then close distance before the guard can re-square.
+- steps:
+  - Control the lower legs or pant line and drag them across your hip line.
+  - Staple the legs so the hips point away from you.
+  - Step in tight with chest pressure and head position controlling the upper body.
+  - Settle into side control, back exposure, or knee-on-belly style pressure.
+- commonMistakes:
+  - Dragging the legs without closing distance.
+  - Standing too upright over the guard.
+  - Letting the opponent square the hips back in.
+- safetyNotes:
+  - Keep pressure controlled over the knees and hips.
+  - Avoid falling heavily when switching to top control.
+- youtubeUrl: `needs curated IBJJF-aligned source`
+- imageStatus: `no app image yet`
+- setupFor: `Side control`, `back exposure`, `knee-on-belly`
+- followUps: `Back take if opponent turns away`, `knee cut if opponent re-pummels`
+- commonCounters: `Hip inversion`, `frames at the shoulder`, `recovering inside knee position`
+- counterTo: `Wide open guard with disconnected legs`
+- worksWellWith: `Toreando pass`, `Knee cut pass`
+- samePositionOptions: `Knee cut pass`, `Toreando pass`
+- source:
+  - IBJJF positional baseline
+  - Editorial summary for teaching language
+- reviewStatus: `clarified`
+
+#### Over-Under Pass
+
+- practice: `Jiu-Jitsu`
+- section: `Passing`
+- family: `Open guard passing`
+- englishName: `Over-Under Pass`
+- positionContext: `Top open guard`
+- setup: Trap one leg over your shoulder, control the far leg underneath, and stack the hips so the bottom player loses mobility.
+- steps:
+  - Thread one arm under a leg and clamp the other leg over your shoulder.
+  - Bring your head and chest low to pin the hips.
+  - Walk around the controlled hips without giving the knees back space.
+  - Clear the legs and settle into side control.
+- commonMistakes:
+  - Keeping the head too high.
+  - Failing to staple the hips before walking around.
+  - Moving around the legs without dominating the far leg.
+- safetyNotes:
+  - Apply stacking pressure gradually.
+  - Avoid sudden neck pressure on your partner while pinning the hips.
+- youtubeUrl: `needs curated IBJJF-aligned source`
+- imageStatus: `no app image yet`
+- setupFor: `Side control`, `pass completion from stubborn open guards`
+- followUps: `Side control`, `north-south if hips stay pinned flat`
+- commonCounters: `Frames on the head`, `inversion`, `recovery of the far knee line`
+- counterTo: `Open guard players who keep the knees between you and the torso`
+- worksWellWith: `Knee cut pass`, `Toreando pass`
+- samePositionOptions: `Leg drag`, `Knee cut pass`
+- source:
+  - IBJJF positional baseline
+  - Editorial summary for teaching language
+- reviewStatus: `clarified`
+
+#### Knee-on-Belly
+
+- practice: `Jiu-Jitsu`
+- section: `Pins`
+- family: `Top pins`
+- englishName: `Knee-on-Belly`
+- positionContext: `Top transition pin`
+- setup: Use upper-body control and place the knee across the torso so the opponent has to react, giving you either points, submissions, or a more dominant follow-up.
+- steps:
+  - Establish top control after passing or from side control.
+  - Place the near-side knee across the torso while the far leg bases out wide.
+  - Keep one hand controlling the collar, head, or far shoulder line.
+  - Float with the opponent's movement and switch to mount, side control, or attacks as reactions open.
+- commonMistakes:
+  - Placing the knee too low with no chest control.
+  - Sitting too upright and losing balance.
+  - Treating it as a static pin instead of a transition platform.
+- safetyNotes:
+  - Apply torso pressure progressively.
+  - Be mindful of ribs and breathing, especially with smaller partners.
+- youtubeUrl: `needs curated IBJJF-aligned source`
+- imageStatus: `no app image yet`
+- setupFor: `Mount`, `Armbar`, `Far-side attacks`
+- followUps: `Mount`, `side control`, `spinning armlocks`
+- commonCounters: `Bridge and trap`, `hip escape under the knee`, `turning to recover half guard`
+- counterTo: `Defensive side-control reactions`
+- worksWellWith: `Side control`, `Mount`, `Leg drag`
+- samePositionOptions: `Side control`, `Mount`
+- source:
+  - IBJJF positional baseline
+  - Editorial summary for teaching language
+- reviewStatus: `clarified`
+
+#### Mount
+
+- practice: `Jiu-Jitsu`
+- section: `Pins`
+- family: `Top pins`
+- englishName: `Mount`
+- positionContext: `Top dominant pin`
+- setup: Climb the knees high enough to control the hips and shoulders, and force the opponent to carry your weight before you attack.
+- steps:
+  - Arrive from a pass, sweep, or transition with knees tight around the torso.
+  - Drop your hips and connect to the opponent rather than floating too high.
+  - Climb higher when the opponent bridges so the shoulders become exposed.
+  - Attack submissions or back takes once the elbows separate from the ribs.
+- commonMistakes:
+  - Staying low on the hips with no upper-body control.
+  - Chasing submissions before stabilizing base.
+  - Letting knees drift wide enough for easy elbow escapes.
+- safetyNotes:
+  - Keep pressure controlled and responsive.
+  - Avoid driving weight abruptly onto the face or throat.
+- youtubeUrl: `needs curated IBJJF-aligned source`
+- imageStatus: `no app image yet`
+- setupFor: `Armbar`, `Cross-collar choke`, `Back take`
+- followUps: `Armbar`, `Head-and-arm attacks`, `Back take as opponent turns`
+- commonCounters: `Upa escape`, `Elbow escape`, `Framing and knee insertion`
+- counterTo: `Opponent flattened after pass or sweep`
+- worksWellWith: `Knee-on-Belly`, `Side control`, `Back control`
+- samePositionOptions: `Side control`, `Knee-on-Belly`
+- source:
+  - IBJJF positional baseline
+  - Editorial summary for teaching language
+- reviewStatus: `clarified`
 - `Elbow escape`
   - practice: `Jiu-Jitsu`
   - section: `Escapes`
@@ -647,6 +779,176 @@ These are the first fuller entries to review before import.
   - Kodokan kata material for positional reference
 - reviewStatus: `clarified`
 
+#### Kata Gatame
+
+- practice: `Judo`
+- section: `Katame-waza`
+- family: `Osaekomi-waza`
+- japaneseName: `Kata Gatame`
+- englishName: `Shoulder Hold`
+- positionContext: `Groundwork / side pin`
+- setup: Wrap the opponent's arm and head together so the shoulder line and neck line are pinned under your upper body from the side.
+- steps:
+  - Isolate one arm and bring it toward the opponent's head.
+  - Thread your arms around the trapped arm-and-head connection.
+  - Drop shoulder pressure and settle your chest low from the side.
+  - Widen your base and adjust with the hips as uke bridges or turns.
+- commonMistakes:
+  - Leaving too much space under the head and shoulder.
+  - Squeezing with the arms without settling body weight.
+  - Letting the trapped elbow slip free.
+- safetyNotes:
+  - Apply pressure gradually, especially around the neck and jaw.
+  - Reset if your partner cannot move safely or communicate.
+- youtubeUrl: `needs verified official link`
+- imageStatus: `no app image yet`
+- setupFor: `Arm exposure`, `transition pin control`
+- followUps: `Juji-gatame`, `mount transition if uke turns away`
+- commonCounters: `Frames against the neck`, `bridge and hip escape`, `turning to knees`
+- counterTo: `Loose underhook and side-control recovery attempts`
+- worksWellWith: `Kesa Gatame`, `Yoko-shiho-gatame`
+- samePositionOptions: `Kesa Gatame`, `Yoko-shiho-gatame`
+- source:
+  - Kodokan Global names/definitions page
+  - Kodokan Katame-no-Kata positional references
+- reviewStatus: `clarified`
+
+#### Kami Shiho Gatame
+
+- practice: `Judo`
+- section: `Katame-waza`
+- family: `Osaekomi-waza`
+- japaneseName: `Kami Shiho Gatame`
+- englishName: `Upper Four-Corner Hold`
+- positionContext: `Groundwork / top of head-side pin`
+- setup: Move to the head side, control both sides of the belt or trunk line, and spread your weight across the chest and upper abdomen.
+- steps:
+  - Circle to the top of the head so your chest faces uke's torso.
+  - Secure the belt, jacket, or trunk line on both sides.
+  - Drop your hips low and widen the knees for base.
+  - Follow uke's bridging motion without letting the elbows disconnect from control.
+- commonMistakes:
+  - Kneeling too tall over uke.
+  - Reaching wide and losing trunk control.
+  - Letting uke insert elbows to turn back to guard.
+- safetyNotes:
+  - Keep pressure gradual through the chest and ribs.
+  - Avoid driving weight sharply onto the face or throat.
+- youtubeUrl: `needs verified official link`
+- imageStatus: `no app image yet`
+- setupFor: `Shime-waza entries`, `transition to kuzure-kami-shiho-gatame`
+- followUps: `Collar attacks if uke exposes the neck`, `switch to Yoko-shiho-gatame if uke turns`
+- commonCounters: `Bridge toward one shoulder`, `elbow insertion`, `hip-walk escape`
+- counterTo: `Opponent flattening underneath and giving head-side access`
+- worksWellWith: `Yoko-shiho-gatame`, `Kata-gatame`
+- samePositionOptions: `Yoko-shiho-gatame`, `Kuzure-kami-shiho-gatame`
+- source:
+  - Kodokan Global names/definitions page
+  - Kodokan Katame-no-Kata positional references
+- reviewStatus: `clarified`
+
+#### Yoko Shiho Gatame
+
+- practice: `Judo`
+- section: `Katame-waza`
+- family: `Osaekomi-waza`
+- japaneseName: `Yoko Shiho Gatame`
+- englishName: `Side Four-Corner Hold`
+- positionContext: `Groundwork / side-control style pin`
+- setup: Approach from the side, control around the far collar and lower body, and flatten uke under the chest and abdomen line.
+- steps:
+  - Establish side control from chest-to-chest alignment.
+  - Control the far upper body while anchoring the hips or belt line.
+  - Lower your hips and spread your base to prevent rolling.
+  - Track uke's frames and recoveries with shoulder and hip pressure.
+- commonMistakes:
+  - Leaving the near hip unblocked.
+  - Keeping elbows too wide and giving space.
+  - Focusing only on chest pressure while neglecting hip control.
+- safetyNotes:
+  - Pressure should be progressive, not sudden.
+  - Adjust if your partner cannot turn the head or breathe comfortably.
+- youtubeUrl: `needs verified official link`
+- imageStatus: `no app image yet`
+- setupFor: `Kata Gatame`, `Juji Gatame`, `Kami Shiho Gatame`
+- followUps: `Mount transition`, `arm attack when uke frames upward`
+- commonCounters: `Hip escape`, `underhook recovery`, `turn to knees`
+- counterTo: `Opponent who concedes side exposure during transition`
+- worksWellWith: `Kata Gatame`, `Juji Gatame`, `Kesa Gatame`
+- samePositionOptions: `Kesa Gatame`, `Kata Gatame`, `Kami Shiho Gatame`
+- source:
+  - Kodokan Global names/definitions page
+  - Kodokan Katame-no-Kata positional references
+- reviewStatus: `clarified`
+
+#### Okuri Eri Jime
+
+- practice: `Judo`
+- section: `Katame-waza`
+- family: `Shime-waza`
+- japaneseName: `Okuri Eri Jime`
+- englishName: `Sliding Collar Choke`
+- positionContext: `Groundwork / back exposure`
+- setup: Establish upper-body control from behind and feed one hand deep into the collar before the finishing hand slides across the second side.
+- steps:
+  - Secure back control or a strong seatbelt-style hold.
+  - Insert the first hand deep into the collar with the palm orientation that fits your preferred finish.
+  - Slide the second hand across the opposite collar or shoulder line.
+  - Pull the elbows in and expand the chest while keeping head connection tight.
+- commonMistakes:
+  - Reaching for the choke before stabilizing the back.
+  - Leaving the first hand too shallow.
+  - Pulling outward instead of closing the collar line inward.
+- safetyNotes:
+  - Apply slowly and release immediately on tap.
+  - Avoid violent collar yanks during setup.
+- youtubeUrl: `needs verified official link`
+- imageStatus: `no app image yet`
+- setupFor: `Back control finish`, `collar choke chains`
+- followUps: `Kata-ha-jime`, `Hadaka-jime if collars are lost`
+- commonCounters: `Two-on-one grip fighting`, `chin tuck`, `shoulder escape to the mat`
+- counterTo: `Opponent exposing the back in gi grips`
+- worksWellWith: `Hadaka-jime`, `Kata-ha-jime`
+- samePositionOptions: `Hadaka-jime`, `Kata-ha-jime`
+- source:
+  - Kodokan names list
+  - Kodokan Global classification references
+- reviewStatus: `clarified`
+
+#### Ude-Hishigi-Juji-Gatame
+
+- practice: `Judo`
+- section: `Katame-waza`
+- family: `Kansetsu-waza`
+- japaneseName: `Ude-Hishigi-Juji-Gatame`
+- englishName: `Cross Armlock`
+- positionContext: `Groundwork / arm lock`
+- setup: Trap the arm, get your hips underneath the elbow line, and control the shoulder before trying to finish.
+- steps:
+  - Secure one arm tightly to your chest and pivot so the elbow line points over your hips.
+  - Bring one leg over the head and the other over the torso.
+  - Pinch the knees and control the wrist with the thumb pointing upward.
+  - Lift the hips gradually while keeping the elbow isolated.
+- commonMistakes:
+  - Crossing the feet.
+  - Finishing before shoulder control is established.
+  - Letting the elbow slip below the hip line.
+- safetyNotes:
+  - Apply slowly and stop immediately on tap.
+  - Never bridge explosively into the finish.
+- youtubeUrl: `https://www.youtube.com/watch?v=OWgSOlCuMXw`
+- imageStatus: `no app image yet`
+- setupFor: `Arm exposure from pins`
+- followUps: `Pin recovery if the arm slips`, `triangle-style controls if uke turns`
+- commonCounters: `Stacking`, `hiding the thumb line`, `turning the elbow free`
+- counterTo: `Extended arm frames from top pins`
+- worksWellWith: `Kesa Gatame`, `Yoko-shiho-gatame`, `Kata Gatame`
+- samePositionOptions: `Ude-garami`, `Hiza-gatame`
+- source:
+  - Kodokan names/definitions page
+  - Kodokan official YouTube demo
+- reviewStatus: `clarified`
+
 ### IBJJF-Aligned Jiu-Jitsu
 
 These are editorial teaching summaries aligned to IBJJF position/rules terminology, not official IBJJF technique definitions.
@@ -820,3 +1122,12 @@ These are editorial teaching summaries aligned to IBJJF position/rules terminolo
 
 - Judo entries above are sourced against Kodokan naming and definitions first, then rewritten into shorter teaching language.
 - BJJ entries above are not official IBJJF step-by-step definitions. They are IBJJF-aligned editorial summaries built around competition-standard positional language and should be reviewed as such.
+
+## Backup Recommendation For Notes
+
+- Yes, exporting notes is a good idea before larger rewrites.
+- The app includes a local `Export notes` action on the progress page.
+- Exported notes back up:
+  - favorites
+  - studied flags
+  - class notes
