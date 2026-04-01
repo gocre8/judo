@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MoveActions } from "@/components/MoveActions";
+import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
 import { moveMap } from "@/data/moves";
 import { MoveResource } from "@/lib/types";
@@ -101,6 +102,8 @@ export default async function MovePage({ params }: MovePageProps) {
               ))}
             </ul>
           </article>
+
+          <MoveNotes moveId={move.id} />
         </div>
 
         <div className="section">

@@ -61,6 +61,7 @@ export type UserMoveProgress = {
   favorite: boolean;
   studied: boolean;
   lastViewedAt?: string;
+  classNotes?: string;
 };
 
 export type MoveProgressMap = Record<string, UserMoveProgress>;
