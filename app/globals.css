@@ -319,11 +319,32 @@ p {
 }
 
 .move-card__top,
+.move-card__connections,
 .detail-hero__top {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   align-items: flex-start;
+}
+
+.move-card__connections {
+  display: grid;
+  gap: 8px;
+}
+
+.move-card__connection-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.move-card__connection-chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f5f5f2;
+  color: #444;
+  font-size: 0.82rem;
 }
 
 .muted-label {
@@ -447,6 +468,10 @@ p {
 .connection-group {
   display: grid;
   gap: 8px;
+}
+
+.connection-links .chip {
+  background: #f6f6f3;
 }
 
 .connection-group strong {

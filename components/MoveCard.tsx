@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MoveImage } from "@/components/MoveImage";
+import { moveMap } from "@/data/moves";
 import { Move, UserMoveProgress } from "@/lib/types";
 
 type MoveCardProps = {
@@ -8,6 +9,12 @@ type MoveCardProps = {
 };
 
 export function MoveCard({ move, progress }: MoveCardProps) {
+  const linkedMoves = [...move.alternativeMoveIds, ...move.relatedMoveIds]
+    .filter((moveId, index, allIds) => allIds.indexOf(moveId) === index)
+    .map((moveId) => moveMap[moveId])
+    .filter(Boolean)
+    .slice(0, 2);
+
   return (
     <Link href={`/moves/${move.id}`} className="move-card move-card--link">
       <MoveImage move={move} variant="card" />
@@ -26,6 +33,18 @@ export function MoveCard({ move, progress }: MoveCardProps) {
         <span>{move.situationTags[0]}</span>
         <span>{move.difficulty}</span>
       </div>
+      {linkedMoves.length > 0 ? (
+        <div className="move-card__connections">
+          <span className="muted-label">Connects to</span>
+          <div className="move-card__connection-list">
+            {linkedMoves.map((linkedMove) => (
+              <span key={linkedMove.id} className="move-card__connection-chip">
+                {linkedMove.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </Link>
   );
 }

@@ -43,10 +43,13 @@ export default async function MovePage({ params }: MovePageProps) {
     notFound();
   }
 
-  const relatedMoves = move.relatedMoveIds.map((relatedId) => moveMap[relatedId]).filter(Boolean);
   const alternativeMoves = move.alternativeMoveIds
     .map((relatedId) => moveMap[relatedId])
     .filter(Boolean);
+  const alternativeMoveIds = new Set(alternativeMoves.map((relatedMove) => relatedMove.id));
+  const relatedMoves = move.relatedMoveIds
+    .map((relatedId) => moveMap[relatedId])
+    .filter((relatedMove) => Boolean(relatedMove) && !alternativeMoveIds.has(relatedMove.id));
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
 
@@ -140,7 +143,7 @@ export default async function MovePage({ params }: MovePageProps) {
             {alternativeMoves.length > 0 ? (
               <div className="connection-group">
                 <strong>Try next</strong>
-                <div className="quick-links">
+                <div className="quick-links connection-links">
                   {alternativeMoves.map((relatedMove) => (
                     <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
                       {relatedMove.name}
@@ -152,7 +155,7 @@ export default async function MovePage({ params }: MovePageProps) {
             {relatedMoves.length > 0 ? (
               <div className="connection-group">
                 <strong>Works with</strong>
-                <div className="quick-links">
+                <div className="quick-links connection-links">
                   {relatedMoves.map((relatedMove) => (
                     <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
                       {relatedMove.name}
