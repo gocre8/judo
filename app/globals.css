@@ -170,7 +170,7 @@ p {
   justify-content: center;
   gap: 8px;
   border-radius: 999px;
-  padding: 10px 14px;
+  padding: 8px 13px;
   transition: transform 150ms ease, background 150ms ease, color 150ms ease;
 }
 
@@ -286,8 +286,8 @@ p {
 
 .move-card .pill-row span,
 .move-card .meta-row span {
-  padding: 5px 8px;
-  font-size: 0.78rem;
+  padding: 4px 8px;
+  font-size: 0.76rem;
 }
 
 .move-card--link {

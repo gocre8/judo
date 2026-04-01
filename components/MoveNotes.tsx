@@ -19,7 +19,7 @@ export function MoveNotes({ moveId }: MoveNotesProps) {
           <p className="muted-label">Auto-saves on this device as you type.</p>
         </div>
         <Link className="chip" href="/progress#notes-export">
-          Export notes
+          Export all notes
         </Link>
       </div>
       <textarea

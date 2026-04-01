@@ -10,6 +10,9 @@ export function ProgressClient() {
   const { progress, ready } = useMoveProgress();
   const summary = getProgressSummary(progress);
   const hasSavedData = Object.keys(progress).length > 0;
+  const meaningfulEntries = Object.entries(progress)
+    .filter(([, value]) => value.favorite || value.studied || value.classNotes?.trim())
+    .sort(([leftId], [rightId]) => moveMap[leftId].name.localeCompare(moveMap[rightId].name));
 
   const favorites = moves.filter((move) => progress[move.id]?.favorite);
   const studied = moves
@@ -25,7 +28,43 @@ export function ProgressClient() {
     .filter(([, value]) => value.lastViewedAt)
     .sort(([, left], [, right]) => (right.lastViewedAt ?? "").localeCompare(left.lastViewedAt ?? ""))[0]?.[0];
 
-  const exportPayload = JSON.stringify(
+  const markdownExport = [
+    "# Judo / Jiujitsu Notes",
+    "",
+    `Exported: ${new Date().toLocaleString()}`,
+    "",
+    `Started: ${summary.started}`,
+    `Pinned: ${summary.favorites}`,
+    `Studied: ${summary.studied}`,
+    "",
+    meaningfulEntries.length > 0 ? "## Saved Moves" : "## Saved Moves",
+    "",
+    ...(meaningfulEntries.length > 0
+      ? meaningfulEntries.flatMap(([moveId, value]) => {
+          const move = moveMap[moveId];
+          const status = [
+            value.favorite ? "Pinned" : null,
+            value.studied ? "Studied" : null,
+          ].filter(Boolean);
+
+          return [
+            `### ${move.name}`,
+            `${move.japaneseName}`,
+            "",
+            status.length > 0 ? `Status: ${status.join(" · ")}` : "Status: Notes only",
+            value.classNotes?.trim() ? "" : undefined,
+            value.classNotes?.trim() ? value.classNotes.trim() : undefined,
+            "",
+          ].filter((line): line is string => line !== undefined);
+        })
+      : ["No pinned, studied, or noted moves yet.", ""]),
+  ].join("\n");
+
+  const markdownHref = meaningfulEntries.length > 0
+    ? `data:text/markdown;charset=utf-8,${encodeURIComponent(markdownExport)}`
+    : "";
+
+  const backupPayload = JSON.stringify(
     {
       exportedAt: new Date().toISOString(),
       progress,
@@ -33,8 +72,8 @@ export function ProgressClient() {
     null,
     2,
   );
-  const exportHref = hasSavedData
-    ? `data:application/json;charset=utf-8,${encodeURIComponent(exportPayload)}`
+  const backupHref = hasSavedData
+    ? `data:application/json;charset=utf-8,${encodeURIComponent(backupPayload)}`
     : "";
 
   return (
@@ -49,12 +88,19 @@ export function ProgressClient() {
         <div className="quick-resume__row">
           <div>
             <strong>Notes backup</strong>
-            <p className="muted-label">Export pinned moves, studied moves, and class notes.</p>
+            <p className="muted-label">Export readable notes for yourself, or a full backup for later import work.</p>
           </div>
-          {hasSavedData ? (
-            <a className="action-pill" href={exportHref} download="judo-jiujitsu-notes.json">
-              Export notes
-            </a>
+          {meaningfulEntries.length > 0 ? (
+            <div className="quick-links">
+              <a className="action-pill" href={markdownHref} download="judo-jiujitsu-notes.md">
+                Export notes
+              </a>
+              {hasSavedData ? (
+                <a className="chip" href={backupHref} download="judo-jiujitsu-backup.json">
+                  Backup JSON
+                </a>
+              ) : null}
+            </div>
           ) : (
             <span className="muted-label">{ready ? "Add notes or mark moves first" : "Loading..."}</span>
           )}
