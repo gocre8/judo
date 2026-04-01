@@ -43,11 +43,22 @@ export function ProgressClient() {
         <span>Started {summary.started}</span>
         <span>Pinned {summary.favorites}</span>
         <span>Studied {summary.studied}</span>
-        {hasSavedData ? (
-          <a className="chip" href={exportHref} download="judo-jiujitsu-notes.json">
-            Export notes
-          </a>
-        ) : null}
+      </section>
+
+      <section id="notes-export" className="detail-panel quick-resume">
+        <div className="quick-resume__row">
+          <div>
+            <strong>Notes backup</strong>
+            <p className="muted-label">Export pinned moves, studied moves, and class notes.</p>
+          </div>
+          {hasSavedData ? (
+            <a className="action-pill" href={exportHref} download="judo-jiujitsu-notes.json">
+              Export notes
+            </a>
+          ) : (
+            <span className="muted-label">{ready ? "Add notes or mark moves first" : "Loading..."}</span>
+          )}
+        </div>
       </section>
 
       <section className="detail-panel quick-resume">
@@ -61,7 +72,6 @@ export function ProgressClient() {
             <span className="muted-label">{ready ? "No recent move" : "Loading..."}</span>
           )}
         </div>
-        <p className="muted-label">Export saves your pinned moves, studied moves, and class notes.</p>
       </section>
 
       <section className="progress-grid">

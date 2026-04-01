@@ -9,7 +9,15 @@ type MoveCardProps = {
 };
 
 export function MoveCard({ move, progress }: MoveCardProps) {
-  const linkedMoves = [...move.alternativeMoveIds, ...move.relatedMoveIds]
+  const linkedMoves = [
+    ...(move.setupForIds ?? []),
+    ...(move.followUpIds ?? []),
+    ...(move.counterToIds ?? []),
+    ...(move.counteredByIds ?? []),
+    ...(move.worksWellWithIds ?? []),
+    ...move.alternativeMoveIds,
+    ...move.relatedMoveIds,
+  ]
     .filter((moveId, index, allIds) => allIds.indexOf(moveId) === index)
     .map((moveId) => moveMap[moveId])
     .filter(Boolean)

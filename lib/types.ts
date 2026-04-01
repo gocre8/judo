@@ -56,6 +56,11 @@ export type Move = {
   commonMistakes: string[];
   safetyNotes: string[];
   keyPrinciples: string[];
+  setupForIds?: string[];
+  followUpIds?: string[];
+  counterToIds?: string[];
+  counteredByIds?: string[];
+  worksWellWithIds?: string[];
   relatedMoveIds: string[];
   alternativeMoveIds: string[];
   diagram: MoveDiagram;

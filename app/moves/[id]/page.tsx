@@ -50,8 +50,21 @@ export default async function MovePage({ params }: MovePageProps) {
   const relatedMoves = move.relatedMoveIds
     .map((relatedId) => moveMap[relatedId])
     .filter((relatedMove) => Boolean(relatedMove) && !alternativeMoveIds.has(relatedMove.id));
+  const setupMoves = (move.setupForIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
+  const followUpMoves = (move.followUpIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
+  const counterToMoves = (move.counterToIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
+  const counteredByMoves = (move.counteredByIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
+  const worksWellWithMoves = (move.worksWellWithIds ?? [])
+    .map((relatedId) => moveMap[relatedId])
+    .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
+  const hasSpecificConnections =
+    setupMoves.length > 0 ||
+    followUpMoves.length > 0 ||
+    counterToMoves.length > 0 ||
+    counteredByMoves.length > 0 ||
+    worksWellWithMoves.length > 0;
 
   return (
     <div className="section">
@@ -140,7 +153,67 @@ export default async function MovePage({ params }: MovePageProps) {
                 <p className="muted-label">Moves that pair well, branch off, or solve a reaction.</p>
               </div>
             </div>
-            {alternativeMoves.length > 0 ? (
+            {setupMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Sets up</strong>
+                <div className="quick-links connection-links">
+                  {setupMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {followUpMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Follow up to</strong>
+                <div className="quick-links connection-links">
+                  {followUpMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {counterToMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Counters</strong>
+                <div className="quick-links connection-links">
+                  {counterToMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {counteredByMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>If defended, look for</strong>
+                <div className="quick-links connection-links">
+                  {counteredByMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {worksWellWithMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>Works with</strong>
+                <div className="quick-links connection-links">
+                  {worksWellWithMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {!hasSpecificConnections && alternativeMoves.length > 0 ? (
               <div className="connection-group">
                 <strong>Try next</strong>
                 <div className="quick-links connection-links">
@@ -152,7 +225,7 @@ export default async function MovePage({ params }: MovePageProps) {
                 </div>
               </div>
             ) : null}
-            {relatedMoves.length > 0 ? (
+            {!hasSpecificConnections && relatedMoves.length > 0 ? (
               <div className="connection-group">
                 <strong>Works with</strong>
                 <div className="quick-links connection-links">
@@ -164,7 +237,7 @@ export default async function MovePage({ params }: MovePageProps) {
                 </div>
               </div>
             ) : null}
-            {alternativeMoves.length === 0 && relatedMoves.length === 0 ? (
+            {!hasSpecificConnections && alternativeMoves.length === 0 && relatedMoves.length === 0 ? (
               <p className="muted-label">Linked move chains are still being added for this entry.</p>
             ) : null}
           </article>
