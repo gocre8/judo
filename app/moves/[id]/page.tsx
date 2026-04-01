@@ -167,7 +167,7 @@ export default async function MovePage({ params }: MovePageProps) {
             ) : null}
             {followUpMoves.length > 0 ? (
               <div className="connection-group">
-                <strong>Follow up to</strong>
+                <strong>Follows from</strong>
                 <div className="quick-links connection-links">
                   {followUpMoves.map((relatedMove) => (
                     <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
