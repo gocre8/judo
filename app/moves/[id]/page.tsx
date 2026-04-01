@@ -48,6 +48,7 @@ export default async function MovePage({ params }: MovePageProps) {
     .map((relatedId) => moveMap[relatedId])
     .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
+  const practice = move.practice ?? "Judo";
 
   return (
     <div className="section">
@@ -60,7 +61,7 @@ export default async function MovePage({ params }: MovePageProps) {
           <div>
             <h1>{move.name}</h1>
             <p className="muted-label">{move.japaneseName}</p>
-            <p className="muted-label">{move.section} · {move.family}</p>
+            <p className="muted-label">{practice} · {move.section} · {move.family}</p>
           </div>
         </div>
         <div className="meta-row">

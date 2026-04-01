@@ -59,6 +59,16 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
         <div className="filter-row">
           <select
             className="select-input"
+            value={filters.practice}
+            onChange={(event) => setFilter("practice", event.target.value as LibraryFilters["practice"])}
+            aria-label="Filter by practice"
+          >
+            <option value="All">All practices</option>
+            <option value="Judo">Judo</option>
+            <option value="Jiu-Jitsu">Jiu-Jitsu</option>
+          </select>
+          <select
+            className="select-input"
             value={filters.category}
             onChange={(event) => setFilter("category", event.target.value as LibraryFilters["category"])}
             aria-label="Filter by category"
@@ -68,6 +78,10 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
             <option value="Hold-down">Hold-downs</option>
             <option value="Choke">Chokes</option>
             <option value="Arm lock">Arm locks</option>
+            <option value="Sweep">Sweeps</option>
+            <option value="Pass">Passes</option>
+            <option value="Position">Positions</option>
+            <option value="Escape">Escapes</option>
           </select>
           <select
             className="select-input"

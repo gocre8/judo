@@ -12,12 +12,14 @@ function getSingleParam(
 }
 
 function toInitialFilters(params: Record<string, string | string[] | undefined>): Partial<LibraryFilters> {
+  const practice = getSingleParam(params.practice);
   const situation = getSingleParam(params.situation);
   const difficulty = getSingleParam(params.difficulty);
   const category = getSingleParam(params.category);
   const search = getSingleParam(params.search);
 
   return {
+    practice: practice === "Judo" || practice === "Jiu-Jitsu" ? practice : "All",
     search: search ?? "",
     category:
       category === "Throw" ||

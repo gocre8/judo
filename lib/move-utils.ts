@@ -2,6 +2,7 @@ import { moves } from "@/data/moves";
 import { LibraryFilters, Move, MoveProgressMap } from "@/lib/types";
 
 export const defaultFilters: LibraryFilters = {
+  practice: "All",
   search: "",
   category: "All",
   difficulty: "All",
@@ -15,18 +16,23 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
 
   return allMoves.filter((move) => {
     const moveProgress = progress[move.id];
+    const practice = move.practice ?? "Judo";
     const matchesSearch =
       searchNeedle.length === 0 ||
       [
+        practice,
         move.name,
         move.japaneseName,
         move.shortDescription,
+        move.section,
+        move.family,
         move.category,
         ...move.situationTags,
       ]
         .join(" ")
         .toLowerCase()
         .includes(searchNeedle);
+    const matchesPractice = filters.practice === "All" || practice === filters.practice;
     const matchesCategory = filters.category === "All" || move.category === filters.category;
     const matchesDifficulty =
       filters.difficulty === "All" || move.difficulty === filters.difficulty;
@@ -37,6 +43,7 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
 
     return (
       matchesSearch &&
+      matchesPractice &&
       matchesCategory &&
       matchesDifficulty &&
       matchesSituation &&

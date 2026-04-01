@@ -1,15 +1,24 @@
-export type MoveCategory = "Throw" | "Hold-down" | "Choke" | "Arm lock";
+export type Practice = "Judo" | "Jiu-Jitsu";
+export type MoveCategory =
+  | "Throw"
+  | "Hold-down"
+  | "Choke"
+  | "Arm lock"
+  | "Sweep"
+  | "Pass"
+  | "Position"
+  | "Escape";
 export type MoveDifficulty = "Beginner" | "Intermediate";
-export type MoveSection = "Nage-waza" | "Katame-waza";
-export type MoveFamily =
-  | "Te-waza"
-  | "Koshi-waza"
-  | "Ashi-waza"
-  | "Ma-sutemi-waza"
-  | "Yoko-sutemi-waza"
-  | "Osaekomi-waza"
-  | "Shime-waza"
-  | "Kansetsu-waza";
+export type MoveSection =
+  | "Nage-waza"
+  | "Katame-waza"
+  | "Guard"
+  | "Passing"
+  | "Pins"
+  | "Back control"
+  | "Submissions"
+  | "Escapes";
+export type MoveFamily = string;
 
 export type DiagramMarker = {
   label: string;
@@ -32,6 +41,7 @@ export type MoveResource = {
 
 export type Move = {
   id: string;
+  practice?: Practice;
   name: string;
   japaneseName: string;
   imageSrc?: string;
@@ -67,6 +77,7 @@ export type UserMoveProgress = {
 export type MoveProgressMap = Record<string, UserMoveProgress>;
 
 export type LibraryFilters = {
+  practice: "All" | Practice;
   search: string;
   category: "All" | MoveCategory;
   difficulty: "All" | MoveDifficulty;
