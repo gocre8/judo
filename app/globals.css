@@ -232,6 +232,21 @@ p {
   margin-bottom: 6px;
 }
 
+.progress-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.progress-summary span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
 .filter-panel {
   border-radius: var(--radius-lg);
   padding: 14px;
@@ -262,6 +277,15 @@ p {
   padding: 10px;
   display: grid;
   gap: 10px;
+}
+
+.move-card--link {
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.move-card--link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(20, 20, 20, 0.18);
 }
 
 .move-card__visual {
@@ -396,6 +420,18 @@ p {
 
 .curriculum-row p {
   font-size: 0.95rem;
+}
+
+.quick-resume {
+  padding: 12px 14px;
+}
+
+.quick-resume__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .resource-link {

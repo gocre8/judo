@@ -26,38 +26,23 @@ export function ProgressClient() {
 
   return (
     <div className="section">
-      <section className="stats-grid">
-        <article className="stat-card">
-          <strong>{summary.started}</strong>
-          <p>moves you have started studying</p>
-        </article>
-        <article className="stat-card">
-          <strong>{summary.favorites}</strong>
-          <p>moves pinned for quick review</p>
-        </article>
-        <article className="stat-card">
-          <strong>{summary.studied}</strong>
-          <p>moves marked studied so far</p>
-        </article>
+      <section className="progress-summary">
+        <span>Started {summary.started}</span>
+        <span>Pinned {summary.favorites}</span>
+        <span>Studied {summary.studied}</span>
       </section>
 
-      <section className="panel detail-panel">
-        <div className="section-heading">
-          <div>
-            <p className="muted-label">Quick resume</p>
-            <h2>Continue where you left off</h2>
-          </div>
+      <section className="detail-panel quick-resume">
+        <div className="quick-resume__row">
+          <strong>Quick resume</strong>
           {lastViewedId ? (
-            <Link className="action-pill" href={`/moves/${lastViewedId}`}>
-              Reopen {moveMap[lastViewedId].name}
+            <Link className="chip" href={`/moves/${lastViewedId}`}>
+              {moveMap[lastViewedId].name}
             </Link>
-          ) : null}
+          ) : (
+            <span className="muted-label">{ready ? "No recent move" : "Loading..."}</span>
+          )}
         </div>
-        <p>
-          {ready
-            ? "Your progress is stored in this browser only, which keeps the app lightweight and private."
-            : "Loading your saved study state from local storage."}
-        </p>
       </section>
 
       <section className="progress-grid">

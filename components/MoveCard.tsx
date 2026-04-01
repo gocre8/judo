@@ -9,7 +9,7 @@ type MoveCardProps = {
 
 export function MoveCard({ move, progress }: MoveCardProps) {
   return (
-    <article className="move-card">
+    <Link href={`/moves/${move.id}`} className="move-card move-card--link">
       <MoveImage move={move} variant="card" />
       <div className="move-card__top">
         <div>
@@ -26,9 +26,6 @@ export function MoveCard({ move, progress }: MoveCardProps) {
         <span>{move.situationTags[0]}</span>
         <span>{move.difficulty}</span>
       </div>
-      <Link href={`/moves/${move.id}`} className="text-link">
-        Open
-      </Link>
-    </article>
+    </Link>
   );
 }
