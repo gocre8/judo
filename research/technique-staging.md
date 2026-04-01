@@ -67,6 +67,7 @@ Each entry should capture:
 - `practice`
 - `section`
 - `family`
+- `trainingContext` such as `Gi`, `No-gi`, or `Gi and No-gi` when relevant
 - `japaneseName` or canonical name
 - `englishName`
 - `positionContext`
@@ -291,6 +292,7 @@ Sections to support:
   - practice: `Jiu-Jitsu`
   - section: `Guard`
   - family: `Closed guard`
+  - trainingContext: `Gi and No-gi`
   - samePositionOptions: `Scissor sweep`, `Hip bump sweep`, `Triangle`, `Armbar`, `Kimura`
   - source: IBJJF baseline terminology
   - reviewStatus: `seeded`
@@ -298,6 +300,7 @@ Sections to support:
   - practice: `Jiu-Jitsu`
   - section: `Guard`
   - family: `Closed guard`
+  - trainingContext: `Gi and No-gi`
   - setupFor: `Triangle`, `Cross collar choke`
   - followUps: `Mount`, `Combat base top`
   - commonCounters: `Opponent postures`, `Opponent bases wide`
@@ -307,6 +310,7 @@ Sections to support:
   - practice: `Jiu-Jitsu`
   - section: `Guard`
   - family: `Closed guard`
+  - trainingContext: `Gi and No-gi`
   - setupFor: `Kimura`, `Guillotine`
   - followUps: `Mount`
   - source: IBJJF baseline terminology
@@ -315,6 +319,7 @@ Sections to support:
   - practice: `Jiu-Jitsu`
   - section: `Submissions`
   - family: `Closed guard`
+  - trainingContext: `Gi and No-gi`
   - worksWellWith: `Armbar`, `Omoplata`, `Hip bump sweep`
   - source: IBJJF baseline terminology
   - reviewStatus: `seeded`
@@ -322,6 +327,7 @@ Sections to support:
   - practice: `Jiu-Jitsu`
   - section: `Submissions`
   - family: `Closed guard`
+  - trainingContext: `Gi and No-gi`
   - worksWellWith: `Triangle`, `Kimura`
   - source: IBJJF baseline terminology
   - reviewStatus: `seeded`
