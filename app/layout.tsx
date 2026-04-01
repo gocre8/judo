@@ -23,6 +23,7 @@ export default function RootLayout({
             <nav className="site-nav" aria-label="Primary">
               <Link href="/library">Library</Link>
               <Link href="/progress">Progress</Link>
+              <Link href="/guide">Guide</Link>
             </nav>
           </header>
           <main>{children}</main>

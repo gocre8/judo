@@ -2,6 +2,26 @@
 
 Use this file as the source-backed holding area before adding techniques to the app.
 
+## App Guide Notes
+
+These notes should stay aligned with the in-app guide page.
+
+### Export Notes
+
+- `Export notes` creates a readable Markdown file for a person.
+- `Backup JSON` keeps the full machine-readable browser backup for future import or restore work.
+- The Markdown export should include moves with notes, pinned state, or studied state.
+- The JSON backup may include moves that were only opened, because it preserves full saved state such as `lastViewedAt`.
+
+### Connection Terms
+
+- `Connects to` is a generalized fallback bucket.
+- `Sets up` means this move tends to lead into the next one.
+- `Follows from` means this move is often available after the listed move/reaction.
+- `Counters` means this move answers the other move.
+- `If defended, look for` means a failed or blocked attack may open those options.
+- `Works with` means they pair well but are less directional.
+
 Review status:
 - `seeded`: listed with source and rough notes
 - `verified`: source checked and naming confirmed
@@ -254,6 +274,7 @@ Families to support:
 
 Source baseline:
 - IBJJF rules and common competition position language
+- [BJJ Equipment: Jiu-Jitsu Moves](https://bjjequipment.com/jiu-jitsu-moves/) for additional move list browsing and plain-language cross-checking
 
 Sections to support:
 - `Standing`
