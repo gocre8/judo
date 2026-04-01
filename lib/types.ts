@@ -87,6 +87,7 @@ export type LibraryFilters = {
   category: "All" | MoveCategory;
   difficulty: "All" | MoveDifficulty;
   situation: "All" | "Standing" | "Groundwork";
+  training: "All" | "Gi" | "No-gi";
   favoritesOnly: boolean;
   studiedOnly: boolean;
 };

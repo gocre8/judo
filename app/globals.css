@@ -215,7 +215,7 @@ p {
 .detail-grid,
 .progress-grid {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .stats-grid {
@@ -270,6 +270,7 @@ p {
 }
 
 .move-grid {
+  gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
 
@@ -335,6 +336,17 @@ p {
   justify-content: space-between;
   gap: 8px;
   align-items: flex-start;
+}
+
+.detail-hero__nav {
+  display: flex;
+  gap: 6px;
+}
+
+.detail-hero__nav-button {
+  min-width: 38px;
+  padding: 7px 10px;
+  font-size: 0.9rem;
 }
 
 .move-card__meta {

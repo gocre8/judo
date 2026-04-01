@@ -49,7 +49,7 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
           <input
             className="search-input"
             type="search"
-            placeholder="Search throws, groundwork, Japanese names..."
+            placeholder="Search throws, grappling, Japanese names, gi, no-gi..."
             
             value={filters.search}
             onChange={(event) => setFilter("search", event.target.value)}
@@ -106,6 +106,18 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
             <option value="All">All situations</option>
             <option value="Standing">Standing</option>
             <option value="Groundwork">Groundwork</option>
+          </select>
+          <select
+            className="select-input"
+            value={filters.training}
+            onChange={(event) =>
+              setFilter("training", event.target.value as LibraryFilters["training"])
+            }
+            aria-label="Filter by training context"
+          >
+            <option value="All">Gi + no-gi</option>
+            <option value="Gi">Gi</option>
+            <option value="No-gi">No-gi</option>
           </select>
         </div>
         <div className="toggle-row">

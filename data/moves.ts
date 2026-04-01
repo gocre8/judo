@@ -698,7 +698,7 @@ export const featuredMoveIds = ["osoto-gari", "o-goshi", "deashi-harai"];
 
 export const moveMap = Object.fromEntries(moves.map((move) => [move.id, move]));
 
-export const roadmap = [
+export const judoRoadmap = [
   {
     family: "Te-waza",
     moves: ["Ippon-seoi-nage", "Seoi-otoshi", "Kata-guruma", "Sukui-nage"],
@@ -722,5 +722,28 @@ export const roadmap = [
   {
     family: "Kansetsu-waza",
     moves: ["Juji-gatame", "Ude-garami", "Hiza-gatame", "Waki-gatame"],
+  },
+] as const;
+
+export const jiuJitsuRoadmap = [
+  {
+    family: "Guard",
+    moves: ["Closed guard", "Open guard", "Half guard", "Butterfly guard"],
+  },
+  {
+    family: "Passing",
+    moves: ["Knee cut pass", "Toreando pass", "Leg drag", "Over-under pass"],
+  },
+  {
+    family: "Pins",
+    moves: ["Side control", "Knee on belly", "Mount", "North-south"],
+  },
+  {
+    family: "Back control",
+    moves: ["Seatbelt control", "Rear naked choke", "Short choke", "Bow and arrow choke"],
+  },
+  {
+    family: "Escapes",
+    moves: ["Upa escape", "Elbow escape", "Side control hip escape", "Back escape"],
   },
 ] as const;

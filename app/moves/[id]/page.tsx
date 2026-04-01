@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { MoveActions } from "@/components/MoveActions";
 import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
-import { moveMap } from "@/data/moves";
+import { moveMap, moves } from "@/data/moves";
 import { MoveResource } from "@/lib/types";
 
 type MovePageProps = {
@@ -59,6 +59,9 @@ export default async function MovePage({ params }: MovePageProps) {
     .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
+  const moveIndex = moves.findIndex((entry) => entry.id === move.id);
+  const previousMove = moves[(moveIndex - 1 + moves.length) % moves.length];
+  const nextMove = moves[(moveIndex + 1) % moves.length];
   const hasSpecificConnections =
     setupMoves.length > 0 ||
     followUpMoves.length > 0 ||
@@ -78,6 +81,14 @@ export default async function MovePage({ params }: MovePageProps) {
             <h1>{move.name}</h1>
             <p className="muted-label">{move.japaneseName}</p>
             <p className="muted-label">{practice} · {move.section} · {move.family}</p>
+          </div>
+          <div className="detail-hero__nav" aria-label="Move navigation">
+            <Link className="chip detail-hero__nav-button" href={`/moves/${previousMove.id}`} aria-label={`Previous move: ${previousMove.name}`}>
+              ◀
+            </Link>
+            <Link className="chip detail-hero__nav-button" href={`/moves/${nextMove.id}`} aria-label={`Next move: ${nextMove.name}`}>
+              ▶
+            </Link>
           </div>
         </div>
         <div className="meta-row">

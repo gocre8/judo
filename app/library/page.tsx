@@ -17,6 +17,7 @@ function toInitialFilters(params: Record<string, string | string[] | undefined>)
   const difficulty = getSingleParam(params.difficulty);
   const category = getSingleParam(params.category);
   const search = getSingleParam(params.search);
+  const training = getSingleParam(params.training);
 
   return {
     practice: practice === "Judo" || practice === "Jiu-Jitsu" ? practice : "All",
@@ -25,13 +26,19 @@ function toInitialFilters(params: Record<string, string | string[] | undefined>)
       category === "Throw" ||
       category === "Hold-down" ||
       category === "Choke" ||
-      category === "Arm lock"
+      category === "Arm lock" ||
+      category === "Sweep" ||
+      category === "Pass" ||
+      category === "Position" ||
+      category === "Escape"
         ? category
         : "All",
     difficulty:
       difficulty === "Beginner" || difficulty === "Intermediate" ? difficulty : "All",
     situation:
       situation === "Standing" || situation === "Groundwork" ? situation : "All",
+    training:
+      training === "Gi" || training === "No-gi" ? training : "All",
   };
 }
 

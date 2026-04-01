@@ -7,6 +7,7 @@ export const defaultFilters: LibraryFilters = {
   category: "All",
   difficulty: "All",
   situation: "All",
+  training: "All",
   favoritesOnly: false,
   studiedOnly: false,
 };
@@ -38,6 +39,8 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       filters.difficulty === "All" || move.difficulty === filters.difficulty;
     const matchesSituation =
       filters.situation === "All" || move.situationTags.includes(filters.situation);
+    const matchesTraining =
+      filters.training === "All" || move.situationTags.includes(filters.training);
     const matchesFavorite = !filters.favoritesOnly || moveProgress?.favorite;
     const matchesStudied = !filters.studiedOnly || moveProgress?.studied;
 
@@ -47,6 +50,7 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       matchesCategory &&
       matchesDifficulty &&
       matchesSituation &&
+      matchesTraining &&
       matchesFavorite &&
       matchesStudied
     );
