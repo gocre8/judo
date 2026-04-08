@@ -519,6 +519,12 @@ p {
   gap: 10px;
 }
 
+.curriculum-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .curriculum-row {
   display: grid;
   gap: 6px;
@@ -531,6 +537,10 @@ p {
 
 .curriculum-row p {
   font-size: 0.95rem;
+}
+
+.curriculum-heading-link {
+  width: fit-content;
 }
 
 .quick-resume {
@@ -722,6 +732,10 @@ p {
   .detail-grid,
   .progress-grid,
   .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .curriculum-columns {
     grid-template-columns: 1fr;
   }
 
