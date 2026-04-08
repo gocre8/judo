@@ -39,6 +39,21 @@ export type MoveResource = {
   kind: "video" | "reference";
 };
 
+export type DecisionBranch = {
+  trigger: string;
+  action: string;
+  moveId?: string;
+  leadsTo?: string;
+};
+
+export type DecisionView = {
+  title: string;
+  fromPosition: string;
+  actionPotential: string;
+  branches: DecisionBranch[];
+  fallback?: string;
+};
+
 export type Move = {
   id: string;
   practice?: Practice;
@@ -63,6 +78,7 @@ export type Move = {
   worksWellWithIds?: string[];
   relatedMoveIds: string[];
   alternativeMoveIds: string[];
+  decisionView?: DecisionView;
   diagram: MoveDiagram;
   resources: MoveResource[];
 };

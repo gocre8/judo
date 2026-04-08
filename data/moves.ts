@@ -178,6 +178,37 @@ export const moves: Move[] = [
     worksWellWithIds: ["hiza-guruma"],
     relatedMoveIds: ["okuriashi-harai", "hiza-guruma"],
     alternativeMoveIds: ["okuriashi-harai", "hiza-guruma"],
+    decisionView: {
+      title: "Foot-sweep decision view",
+      fromPosition: "Standard sleeve-and-collar with moving partner and light lead foot",
+      actionPotential: "The opponent steps and the advancing foot becomes light.",
+      branches: [
+        {
+          trigger: "The stepping foot stays available and glides forward.",
+          action: "Attack Deashi Harai directly.",
+          leadsTo: "Clean forward foot sweep finish.",
+        },
+        {
+          trigger: "The opponent shortens the step or blocks the sweep but the knee line stays exposed.",
+          action: "Switch to Hiza Guruma.",
+          moveId: "hiza-guruma",
+          leadsTo: "Wheel over the knee line.",
+        },
+        {
+          trigger: "The opponent continues moving sideways with both feet traveling together.",
+          action: "Switch to Okuriashi Harai.",
+          moveId: "okuriashi-harai",
+          leadsTo: "Catch both feet in motion.",
+        },
+        {
+          trigger: "The opponent keeps moving but the ankle line is more available than the stepping foot.",
+          action: "Switch to Sasae Tsurikomi Ashi.",
+          moveId: "sasae-tsurikomi-ashi",
+          leadsTo: "Block the ankle and rotate.",
+        },
+      ],
+      fallback: "Reset movement and re-establish timing rather than forcing a planted-foot attack.",
+    },
     diagram: { pose: "foot-sweep", cue: "Sweep the moving foot.", markers: [] },
     resources: [
       {
@@ -545,6 +576,38 @@ export const moves: Move[] = [
     setupForIds: ["scissor-sweep", "hip-bump-sweep", "triangle-choke", "closed-guard-armbar"],
     relatedMoveIds: ["scissor-sweep", "hip-bump-sweep", "triangle-choke"],
     alternativeMoveIds: ["scissor-sweep", "hip-bump-sweep", "closed-guard-armbar"],
+    decisionView: {
+      title: "Closed-guard decision view",
+      fromPosition: "Closed guard bottom with posture control and angle available",
+      actionPotential: "The opponent reacts to posture breaking by posting, widening base, or leaving one arm in and one arm out.",
+      branches: [
+        {
+          trigger: "The opponent bases wide and leans forward.",
+          action: "Attack Scissor Sweep.",
+          moveId: "scissor-sweep",
+          leadsTo: "Come on top into mount or top position.",
+        },
+        {
+          trigger: "The opponent postures up and gives a sit-up lane.",
+          action: "Attack Hip Bump Sweep.",
+          moveId: "hip-bump-sweep",
+          leadsTo: "Knock them over and come up on top.",
+        },
+        {
+          trigger: "One arm stays inside and one arm stays outside.",
+          action: "Attack Triangle Choke.",
+          moveId: "triangle-choke",
+          leadsTo: "Submission or armbar transition.",
+        },
+        {
+          trigger: "The opponent protects the triangle but leaves the elbow line exposed.",
+          action: "Switch to Armbar from Guard.",
+          moveId: "closed-guard-armbar",
+          leadsTo: "Arm isolation finish.",
+        },
+      ],
+      fallback: "Re-break posture, recover angle, and restart from closed-guard control instead of opening without purpose.",
+    },
     diagram: { pose: "ground-pin", cue: "Control posture before opening attacks.", markers: [] },
     resources: [],
   },

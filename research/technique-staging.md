@@ -2,6 +2,331 @@
 
 Use this file as the source-backed holding area before adding techniques to the app.
 
+## Working Goal
+
+Build a study model that does not only store isolated moves.
+
+We want to be able to answer:
+- What position am I in?
+- What position is my opponent in?
+- What reaction did they give me?
+- What action potential opens next?
+- If the move fails, where do I usually land?
+
+That means the file should organize around:
+- `position`
+- `opponent action`
+- `action potential`
+- `resulting position`
+- `best next links`
+
+## Working Map
+
+Use this order when organizing or adding material:
+
+1. `Position`
+2. `Opponent reaction / trigger`
+3. `Primary move`
+4. `Likely follow-up`
+5. `Likely fallback position`
+
+This is the structure we should eventually mirror in the app.
+
+## Positional Hierarchy
+
+These are working models for study and decision-making.
+They are not claims that Judo and Jiu-Jitsu use one identical official hierarchy.
+
+### Judo
+
+Judo needs two separate hierarchies:
+- `Tachi-waza` decision hierarchy
+- `Ne-waza` control hierarchy
+
+#### Judo Tachi-waza Hierarchy
+
+Think of standing Judo as a hierarchy of increasing directional control:
+
+1. `Neutral distance`
+   - no stable grip or no clear angle
+2. `Grip advantage`
+   - one player has the preferred sleeve/collar/inside control or dominant side entry
+3. `Kuzushi advantage`
+   - posture or direction is already compromised
+4. `Tsukuri advantage`
+   - entry position is achieved and hips/angle/leg line are in place
+5. `Kake / throw exposure`
+   - the opponent is already being projected or forced into emergency reaction
+
+Useful study question:
+- In Judo standing, the most important “position” may be `grip + direction + weight distribution`, not body location alone.
+
+#### Judo Ne-waza Hierarchy
+
+For groundwork Judo, a more positional hierarchy is useful:
+
+1. `Neutral scramble`
+2. `Top chest-to-chest control`
+3. `Osaekomi threat`
+4. `Stable pin`
+5. `Submission exposure`
+6. `Shime-waza / Kansetsu-waza finish`
+
+Useful study question:
+- In Judo groundwork, does a pin create a submission, or does an escape attempt create a submission?
+
+### Jiu-Jitsu
+
+Jiu-Jitsu has no single official family system like Kodokan Judo, so the most useful study model is positional.
+
+#### Jiu-Jitsu Top Hierarchy
+
+1. `Standing / neutral engagement`
+2. `Passing position`
+3. `Pinning position`
+4. `Mount`
+5. `Back control`
+6. `Submission finish`
+
+#### Jiu-Jitsu Bottom Hierarchy
+
+1. `Bad defensive position`
+2. `Survival frames`
+3. `Guard recovery`
+4. `Guard control`
+5. `Off-balancing / kuzushi`
+6. `Sweep or submission chain`
+
+Useful study question:
+- In Jiu-Jitsu, the real “position” is often not just the named position, but whether your frames, head position, inside space, and angle are winning or losing.
+
+## Action Potential Model
+
+Use `action potential` to mean:
+- the next realistic attack, transition, or recovery opened by the current position plus the opponent's reaction
+
+### Minimal Link Model
+
+Each move or position should eventually capture:
+- `fromPosition`
+- `toPosition`
+- `opponentReaction`
+- `primaryAction`
+- `secondaryAction`
+- `ifBlocked`
+- `ifCountered`
+- `resetTo`
+
+### Practical Link Types
+
+For app and research purposes, we should standardize these:
+- `from position`
+- `opens when opponent`
+- `sets up`
+- `follows from`
+- `counters`
+- `if defended, look for`
+- `usually lands in`
+- `works with`
+
+## Position-First Entry Template
+
+Use this when adding or rewriting entries:
+
+```md
+#### Move or Position Name
+
+- practice:
+- positionContext:
+- fromPosition:
+- opponentReaction:
+- primaryAction:
+- toPosition:
+- ifBlocked:
+- ifCountered:
+- resetTo:
+- worksWellWith:
+- samePositionOptions:
+- source:
+- reviewStatus:
+```
+
+## Position Buckets To Use
+
+These are the reusable buckets we should keep organizing around.
+
+### Judo Position Buckets
+
+- `Neutral distance`
+- `Standard sleeve-and-collar`
+- `Dominant grip`
+- `Broken posture`
+- `Forward pressure`
+- `Backward pressure`
+- `Rotational entry`
+- `Head-side top control`
+- `Side pin`
+- `Back exposure`
+- `Arm isolation`
+- `Collar control`
+
+### Jiu-Jitsu Position Buckets
+
+- `Standing neutral`
+- `Closed guard top`
+- `Closed guard bottom`
+- `Open guard top`
+- `Open guard bottom`
+- `Half guard top`
+- `Half guard bottom`
+- `Side control top`
+- `Side control bottom`
+- `Mount top`
+- `Mount bottom`
+- `Back control top`
+- `Back control bottom`
+
+## Opponent Action Buckets
+
+These should be reused instead of rewriting the same idea ten different ways.
+
+- `posts hand`
+- `withdraws leg`
+- `bases wide`
+- `drives forward`
+- `pulls back`
+- `circles away`
+- `turns in`
+- `turns away`
+- `bridges hard`
+- `frames on neck`
+- `frames on hips`
+- `recovers elbow-knee connection`
+- `exposes arm`
+- `exposes neck`
+- `stands posture up`
+
+## Source Index
+
+Primary and recurring sources worth keeping near the top:
+- Kodokan Global names and family structure
+- Kodokan official technique demos
+- IBJJF positional and terminology baseline
+- [BJJ Equipment: Jiu-Jitsu Moves](https://bjjequipment.com/jiu-jitsu-moves/) for move browsing and plain-language cross-checking
+
+## Best Next Workflow
+
+Use this order when continuing the file:
+
+1. Write or revise the `positionContext`
+2. Add `fromPosition`
+3. Add the most common `opponentReaction`
+4. Add the `primaryAction`
+5. Add `ifBlocked` and `ifCountered`
+6. Add `toPosition` or `resetTo`
+7. Only after that, polish the prose steps
+
+This should keep the file useful for decision trees and app linking, instead of becoming only a move encyclopedia.
+
+## Judo Directionality
+
+This section is the core working model for Judo action potentials.
+
+Use these directional buckets:
+- `forward`
+- `backward`
+- `right-front corner`
+- `left-front corner`
+- `right-rear corner`
+- `left-rear corner`
+- `rotational right`
+- `rotational left`
+
+When possible, every standing Judo entry should identify:
+- `grip state`
+- `weight-bearing leg`
+- `direction of kuzushi`
+- `entry line`
+- `best follow-up if the direction changes`
+
+### Judo Action-Potential Questions
+
+Before choosing a throw, ask:
+- Which leg is light?
+- Which direction is uke already moving?
+- Are they pulling back, stiff-arming, circling, or stepping?
+- Is the action potential timing-based, grip-based, or posture-based?
+
+## Jiu-Jitsu Action-Potential Section
+
+This section is the core working model for Jiu-Jitsu action potentials.
+
+In Jiu-Jitsu, the action potential usually comes from:
+- posture change
+- posting limb
+- elbow-knee connection opening
+- head position change
+- turn-in or turn-away reaction
+- frame direction
+
+### Jiu-Jitsu Action-Potential Questions
+
+Before choosing the next move, ask:
+- Did they post?
+- Did they widen base?
+- Did they stand posture up?
+- Did they turn toward me or away from me?
+- Did they expose the arm or neck?
+- If my attack fails, what position am I still safe in?
+
+## Worked Example Flow: Judo
+
+### Deashi Harai Cluster
+
+- practice: `Judo`
+- fromPosition: `Standard sleeve-and-collar with lateral or diagonal movement`
+- actionPotential: `The stepping foot becomes light during movement`
+- primaryAction: `Deashi Harai`
+- branches:
+  - if opponent keeps the stepping foot available:
+    - action: `Finish Deashi Harai`
+    - toPosition: `Throw completion`
+  - if opponent shortens the step but knee line stays exposed:
+    - action: `Hiza Guruma`
+    - toPosition: `Wheel-style throw exposure`
+  - if opponent continues moving sideways with both feet traveling:
+    - action: `Okuriashi Harai`
+    - toPosition: `Double-foot sweep exposure`
+  - if stepping foot is gone but ankle line is available:
+    - action: `Sasae Tsurikomi Ashi`
+    - toPosition: `Ankle block rotation`
+- resetTo: `Re-establish movement and timing rather than attacking a planted foot`
+- reviewStatus: `clarified`
+
+## Worked Example Flow: Jiu-Jitsu
+
+### Closed Guard Cluster
+
+- practice: `Jiu-Jitsu`
+- fromPosition: `Closed guard bottom with posture control`
+- actionPotential: `Opponent reacts to posture break by posting, widening base, or leaving one arm in / one arm out`
+- primaryAction: `Closed guard attack chain`
+- branches:
+  - if opponent leans forward with wide base:
+    - action: `Scissor Sweep`
+    - toPosition: `Top position / mount route`
+  - if opponent postures and gives a sit-up lane:
+    - action: `Hip Bump Sweep`
+    - toPosition: `Top position`
+  - if one arm is in and one arm is out:
+    - action: `Triangle Choke`
+    - toPosition: `Submission threat`
+  - if the triangle defense exposes the elbow line:
+    - action: `Armbar from Guard`
+    - toPosition: `Arm isolation finish`
+- resetTo: `Re-break posture and recover angle before opening the guard again`
+- reviewStatus: `clarified`
+
 ## App Guide Notes
 
 These notes should stay aligned with the in-app guide page.
@@ -1158,3 +1483,566 @@ These are editorial teaching summaries aligned to IBJJF position/rules terminolo
   - favorites
   - studied flags
   - class notes
+
+
+From Gemini:
+### Judo Hand Techniques (Te-waza)
+
+#### Ippon-seoi-nage
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Te-waza`
+- englishName: `One-arm Shoulder Throw`
+- positionContext: `Standing`
+- setup: Pull uke forward to create momentum or wait for them to push into you.
+- steps: 
+  - Step in with your lead foot and pivot 180 degrees, backing into uke's space.
+  - Tuck uke's right arm deep into your right armpit, clamping it tight with your bicep.
+  - Drop your center of mass by bending your knees while pulling uke's arm downward.
+  - Straighten your legs while bowing forward to wheel uke over your shoulder.
+- commonMistakes: Lifting with the back instead of using legs as a fulcrum; looking back at uke instead of over the shoulder.
+- source: Kodokan
+- reviewStatus: `ready`
+
+#### Seoi-otoshi
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Te-waza`
+- englishName: `Shoulder Drop`
+- positionContext: `Standing`
+- setup: Similar to Seoi-nage, but used when uke is heavy or resisting the lift.
+- steps: 
+  - Perform the same entry as Ippon-seoi-nage.
+  - Instead of lifting, drop one or both knees to the mat.
+  - Pull uke's arm and collar straight down toward the mat in a wheeling motion.
+- commonMistakes: Failing to have at least one knee touch the mat; pulling backward instead of down.
+- source: Kodokan
+- reviewStatus: `ready`
+
+### Jiu-Jitsu Fundamentals (Escapes and Submissions)
+
+#### Upa Escape
+- practice: `Jiu-Jitsu`
+- section: `Escapes`
+- family: `Mount escapes`
+- englishName: `Bridge and Roll`
+- positionContext: `Bottom of Mount`
+- setup: Protect your neck and wait for uke to commit weight forward.
+- steps: 
+  - Trap uke's arm on one side by pinning their wrist and elbow to your chest.
+  - Trap the same-side foot with your leg to prevent them from basing out.
+  - Bridge your hips explosively toward the ceiling and roll over your shoulder.
+- worksWellWith: `Elbow escape`
+- source: IBJJF baseline terminology
+- reviewStatus: `ready`
+
+#### Kimura from Side Control
+- practice: `Jiu-Jitsu`
+- section: `Submissions`
+- family: `Top pins`
+- trainingContext: `Gi and No-gi`
+- positionContext: `Top Side Control`
+- setup: Established when the opponent reaches to push your face or frame against your hip.
+- steps: 
+  - Isolate the far arm and grab the wrist with a thumb-less grip.
+  - Thread your other arm under their tricep and grab your own wrist.
+  - Step over their head to block movement and rotate their hand toward the back of their head.
+- commonMistakes: Leaving space between your chest and their arm; allowing the arm to straighten.
+- reviewStatus: `ready`
+
+### Jiu-Jitsu Guard Passing (Expansion)
+
+#### Double Under Pass
+- practice: `Jiu-Jitsu`
+- section: `Passing`
+- family: `Open guard passing`
+- englishName: `Double Under Pass`
+- positionContext: `Top open guard`
+- setup: Dive both arms under the opponent's legs and gable grip your hands behind their lower back to stack their weight.
+- steps: 
+  - Drive your shoulder into the opponent's tailbone to lift their hips off the mat.
+  - Walk your body to one side, forcing their knees toward their own face.
+  - Use your shoulder to "wedge" their leg down as you slide your chest over their hip.
+- commonMistakes: Letting the opponent triangle you (keep elbows tucked); failing to stack the hips high enough.
+- followUps: `Side control`, `North-South`
+- reviewStatus: `ready`
+
+#### X-Pass
+- practice: `Jiu-Jitsu`
+- section: `Passing`
+- family: `Open guard passing`
+- trainingContext: `Gi`
+- setup: Best used against a seated or butterfly guard where you can control the lead knee and opposite lapel.
+- steps: 
+  - Grip the inside of the opponent's knee and the opposite collar.
+  - Kick your leg back (like a literal "X" motion) while pushing their knee across their body.
+  - Step quickly to the side to clear the legs and settle into side control.
+- worksWellWith: `Toreando pass`
+- reviewStatus: `ready`
+
+### Counter-Techniques (The Answers)
+
+#### Kimura Counter: The Re-Kimura
+- practice: `Jiu-Jitsu`
+- section: `Counters`
+- counterTo: `Kimura (from bottom guard)`
+- steps: 
+  - As the opponent sits up for the Kimura, immediately post your free hand on the mat for base.
+  - Reach your other arm deep across their back to "re-wrap" their arm.
+  - Roll over your lead shoulder, using the momentum to flip the opponent and end in a top-side Kimura position.
+- reviewStatus: `ready`
+
+#### Osoto-Gari Counter: Osoto-Gaeshi
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Ashi-waza`
+- counterTo: `Osoto-gari`
+- setup: The moment uke attempts to reap your leg.
+- steps: 
+  - Brace your weight forward and resist the backward pull.
+  - Use your own leg to "re-reap" uke's supporting leg or the reaping leg itself.
+  - Twist your body in the opposite direction of their throw to land on top.
+- safetyNotes: Requires excellent timing to avoid falling awkwardly on the knee.
+- source: Kodokan
+- reviewStatus: `ready`
+
+#### Triangle Counter: The Pressure Stack
+- practice: `Jiu-Jitsu`
+- section: `Counters`
+- counterTo: `Triangle choke`
+- steps: 
+  - Immediately "posture up" by looking at the ceiling to prevent the break of your posture.
+  - Grip the opponent's trousers or belt and drive your weight forward, stacking their knees toward their ears.
+  - Use your elbow to "wedge" the locked legs open as you move to side control.
+- commonMistakes: Allowing the opponent to pull your head down; staying flat on your knees instead of driving forward.
+- reviewStatus: `ready`
+
+### Judo Groundwork: Transitions from Turtle
+
+#### Koshi-jime (Clock Choke)
+- practice: `Judo / Jiu-Jitsu`
+- section: `Katame-waza`
+- family: `Shime-waza`
+- counterTo: `Defensive Turtle`
+- steps: 
+  - Reach across the opponent's neck and grab the far-side lapel.
+  - Trap the near-side arm or leg.
+  - Walk your feet in a circle toward the opponent's head (like a clock) to tighten the lapel tension.
+- reviewStatus: `ready`
+
+have found the requested YouTube URLs and reference descriptions for your staging file. For static images, I have provided descriptive labels or Wikimedia links where available, which are standard for reference in app development.
+
+### **Judo Techniques (Kodokan Aligned)**
+
+#### **Ippon Seoi Nage (One-arm Shoulder Throw)**
+
+- **YouTube**: [Ippon Seoi Nage in 5 levels of complexity](https://www.youtube.com/shorts/gim7y77BpBE)
+    
+- **Reference Image**: [Illustration of Ippon-seoi-nage (Wikimedia Commons)](https://commons.wikimedia.org/wiki/File:Ippon-seoi-nage.jpg) — _Shows the turn-in and trapping of the arm in the crook of the elbow._
+    
+
+#### **Ashi Guruma (Leg Wheel)**
+
+- **YouTube**: [Kodokan Judo: Ashi-Guruma](https://www.youtube.com/watch?v=jGg3yjj4CCM)
+    
+- **Reference Description**: _Static image should show Tori's leg extended as an axis across Uke's lower thighs/knees while wheeling them over._
+    
+
+#### **Harai Tsurikomi Ashi (Lift-Pull Foot Sweep)**
+
+- **YouTube**: [HARAI TSURIKOMI ASHI - Technical Breakdown](https://www.youtube.com/watch?v=wP2-1i4_OFU)
+    
+- **Reference Description**: _Image shows the diagonal forward lift of Uke's torso while the foot sweeps the ankle back._
+    
+
+#### **Hane Goshi (Spring Hip Throw)**
+
+- **YouTube**: [IJF Official Hane-goshi Technical Video](https://judo.ijf.org/techniques/Hane-goshi)
+    
+- **Reference Description**: _Shows the "hip spring" action where Tori's leg is raised against the inside of Uke's leg to assist the hip rotation._
+    
+
+---
+
+### **Jiu-Jitsu Passing & Counters (IBJJF Aligned)**
+
+#### **Double Under Pass**
+
+- **YouTube**: [Double Under Guard Pass - Fundamentals and Pressure](https://www.youtube.com/watch?v=JPvwJ0tAVo8)
+    
+- **Reference Description**: _Image of Tori with both arms under Uke's legs, hands joined at the lower back, stacking Uke's hips._
+    
+
+#### **X-Pass**
+
+- **YouTube**: [BJJ X-Pass Series and Combinations](https://www.youtube.com/watch?v=vLdSrrXLcXI)
+    
+- **Reference Description**: _Image of Tori standing, one hand on Uke's knee and one on the collar, kicking a leg back to clear the guard._
+    
+
+#### **Triangle Choke Counter (Pressure Stack)**
+
+- **YouTube**: [Counter the Triangle Choke at Every Stage](https://www.youtube.com/watch?v=PIjyJ081Dlo)
+    
+- **Reference Description**: _Image of Tori posturing tall with hands on Uke's knees or belt to create space before stacking._
+    
+
+#### **Kimura Counter (Back Take)**
+
+- **YouTube**: [Countering the Kimura with a Back Take](https://www.youtube.com/watch?v=_w7JP9VMyvk)
+    
+- **Reference Description**: _Image showing Tori bridging and reaching over the opponent's back to negate the armlock tension._
+### **Judo Directionality & Throw Pairings**
+
+| Direction of Movement          | Off-Balance Target        | Primary Throw Options                      |
+| ------------------------------ | ------------------------- | ------------------------------------------ |
+| **Opponent Pulls/Retreats**    | **Front / Front Corners** | Seoi Nage, O Goshi, Uchi Mata, Tai Otoshi  |
+| **Opponent Pushes/Advances**   | **Back / Rear Corners**   | Osoto Gari, Ouchi Gari, Kosoto Gari        |
+| **Opponent Circles / Lateral** | **Side / Side Corners**   | Deashi Harai, Okuriashi Harai, Hiza Guruma |
+### Judo Directionality Expansion
+
+#### Uchi Mata (Inner Thigh Reap)
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Ashi-waza` (sometimes categorized as Koshi-waza)
+- directionality: `Forward / Front Corner`
+- setup: Pull uke forward or toward their front-right corner. This is most effective when uke is retreating or circling away.
+- steps: 
+  - Pull uke forward to break balance onto their toes.
+  - Pivot 180 degrees while maintaining chest-to-back contact.
+  - Insert your reaping leg between uke's thighs and lift upward while bowing forward.
+- setupFor: `Ouchi Gari` (if they resist the forward lift by leaning back).
+- reviewStatus: `ready`
+
+
+#### Kouchi Gari (Minor Inner Reap)
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Ashi-waza`
+- directionality: `Rear / Rear Corner`
+- setup: Best used when uke is advancing toward you or when they have a wide, stable stance.
+- steps: 
+  - Drive your chest into uke while pulling their sleeve downward to fix their weight on their heel.
+  - Use the sole of your foot to reap the inside of uke's heel in a "shaving" motion across the mat.
+- setupFor: `Seoi Nage`, `Ouchi Gari`
+- worksWellWith: `Osoto Gari` (as a "circular" combination).
+- reviewStatus: `ready`
+
+#### Tai Otoshi (Body Drop)
+- practice: `Judo`
+- section: `Nage-waza`
+- family: `Te-waza`
+- directionality: `Front Corner`
+- setup: Pull uke diagonally forward. This is a "snap" throw that works best when uke's feet are wide.
+- steps: 
+  - Use a strong two-handed pull (sleeve and lapel) to bring uke onto their toes.
+  - Step across uke's path, placing your leg as a tripping hazard without touching their leg.
+  - Use a wheeling motion with your arms to project them over your extended leg.
+- reviewStatus: `ready`
+
+
+#### Tomoe Nage (Circle Throw)
+- practice: `Judo / Jiu-Jitsu`
+- section: `Nage-waza`
+- family: `Ma-sutemi-waza` (Sacrifice Throw)
+- directionality: `Directly Forward`
+- setup: Pull uke straight forward. Works perfectly if uke is pushing back or stiff-arming.
+- steps: 
+  - Grip both lapels or sleeve/collar and pull uke onto you while sitting back.
+  - Place one foot on uke's lower abdomen/hip.
+  - Roll onto your back, using the momentum to flip uke over your head.
+- followUps: `Mount` (BJJ context), `Juji-gatame`
+- reviewStatus: `ready`
+### **1. The Positional Hierarchy (The "Big Picture" Flow)**
+
+This is the fundamental roadmap for every BJJ practitioner. The goal is to move from "Worst" to "Best" while avoiding neutral stalemates.
+
+- **Defensive (Worst):** Rear Mount Bottom → Mount Bottom → Side Control Bottom.
+    
+- **Neutral:** Guard (Bottom or Top) → Turtle (Bottom or Top).
+    
+- **Offensive (Best):** Side Control Top → Mount Top → Rear Mount Top.
+    
+
+---
+
+### **2. Guard Passing Flowchart (The "Toreador" Logic)**
+
+When you are on top of someone's open guard, your movement follows a specific chain based on their distance and grips.
+
+- **Long Range:** Toreando Pass (Side-to-side movement).
+    
+- **Mid Range:** Knee Cut Pass (Driving the knee across the thigh).
+    
+- **Close Range:** Double Under Pass (Stacking the opponent's hips).
+    
+- **Reaction:** If they frame → Switch sides. If they push → Pin the knees.
+    
+
+---
+
+### **3. Submission Chain Flowchart (The "Trap" System)**
+
+Advanced BJJ relies on "chains" rather than single attacks. If the opponent defends one, they usually open themselves up to the next.
+
+**The "Holy Trinity" of Closed Guard:**
+
+1. **Attack:** Armbar.
+    
+2. **Opponent Defends (Pulls arm out):** → Transition to **Triangle Choke**.
+    
+3. **Opponent Defends (Postures up/stacks):** → Transition to **Omoplata**.
+    
+
+**The Mount Attack Chain:**
+
+1. **Attack:** Americana (Keylock).
+    
+2. **Opponent Defends (Straightens arm):** → Transition to **Straight Armbar**.
+    
+3. **Opponent Defends (Turns to side):** → Transition to **Back Take / RNC**.
+    
+
+---
+
+### **4. Defensive Escape Flowchart (Survival)**
+
+When you are pinned, your "decision tree" is based on the space available.
+
+- **Scenario A: They are heavy/low:** → **Upa (Bridge and Roll)**.
+    
+- **Scenario B: They are high/postured:** → **Elbow Escape (Shrimping)** to recover Half Guard.
+    
+- **Scenario C: They are reaching for your neck:** → **Trap the arm** → Revert to Scenario A.
+    
+
+### **Where to Build Your Own**
+
+If you want to create a custom flowchart for your specific "A-Game," these tools are popular in the BJJ community:
+
+- **BJJFlowCharts.com:** Provides pre-made PDF maps of famous instructionals (like Danaher’s).
+    
+- **JJXF (Jiu-Jitsu X-Factor):** A digital tool specifically for building "decision tree" nodes for grappling.
+    
+- **Coggle / MindMeister:** General mind-mapping tools that work well for simple submission chains.
+
+#### **Kata-guruma (Shoulder Wheel)**
+
+- **practice**: `Judo`
+    
+- **family**: `Te-waza`
+    
+- **positionContext**: `Standing`
+    
+- **setup**: Pull uke forward to break their balance onto their toes, creating a "window" of space under their center of gravity.
+    
+- **steps**:
+    
+    - Step deep between uke's legs and drop your hips lower than theirs.
+        
+    - Place your shoulder across their lower abdomen/hips and reach through their legs to grab the far thigh.
+        
+    - Stand up while pulling uke across your shoulders and project them to the side.
+        
+- **commonMistakes**: Trying to lift with the back instead of the legs; not dropping low enough to get under uke's center.
+    
+- **safetyNotes**: In modern IJF competition, touching the legs is restricted, so this is often performed as a "fireman's carry" variation without the leg grab.
+    
+- **reviewStatus**: `ready`
+    
+
+#### **Ko-soto-gake (Minor Outer Hook)**
+
+- **practice**: `Judo`
+    
+- **family**: `Ashi-waza`
+    
+- **positionContext**: `Standing`
+    
+- **setup**: Best used when uke is retreating or leaning back, specifically when their weight is heavily on one heel.
+    
+- **steps**:
+    
+    - Step to the side of uke and use your sleeve/collar grips to drive them toward their rear corner.
+        
+    - Hook your calf behind uke's ankle/calf from the outside.
+        
+    - Drive your chest through the throw while reaping or "hooking" their leg until they fall backward.
+        
+- **commonMistakes**: Hooking the leg without breaking uke's balance (Kuzushi) first; losing chest-to-chest contact.
+    
+- **reviewStatus**: `ready`
+    
+
+---
+
+### **2. Missing Judo Groundwork (Katame-waza)**
+
+You had several pins listed in your "research next" section. Here is the technical data for those transitions.
+
+#### **Hadaka-jime (Naked Strangle)**
+
+- **practice**: `Judo / Jiu-Jitsu`
+    
+- **family**: `Shime-waza`
+    
+- **positionContext**: `Groundwork / Back control`
+    
+- **setup**: Applied when uke is in a turtle position or when you have established back control.
+    
+- **steps**:
+    
+    - Wrap your forearm around uke's neck, placing their windpipe in the crook of your elbow.
+        
+    - Grip your own palm or bicep and place your other hand behind uke's head to close the loop.
+        
+    - Squeeze the elbows together and expand your chest to apply pressure to the carotids.
+        
+- **reviewStatus**: `ready`
+    
+
+#### **Ude-garami (Bent Arm Lock)**
+
+- **practice**: `Judo / Jiu-Jitsu`
+    
+- **family**: `Kansetsu-waza`
+    
+- **positionContext**: `Groundwork / Top pin`
+    
+- **setup**: Often used from _Kesa-gatame_ or _Yoko-shiho-gatame_ when uke tries to push or frame with a bent arm.
+    
+- **steps**:
+    
+    - Pin uke's wrist to the mat with one hand.
+        
+    - Thread your other arm under uke's elbow and grab your own wrist (figure-four grip).
+        
+    - Rotate the arm toward the head (Kimura style) or toward the hips (Americana style) to create shoulder tension.
+        
+- **reviewStatus**: `ready`
+    
+
+---
+
+### **3. Strategic "Bridge" Techniques**
+
+To better connect Judo and BJJ, I recommend adding these moves which were missing from both sections but are essential for a combined app.
+
+#### **Sumi-gaeshi (Corner Throw)**
+
+- **why add it**: It is the premier "sacrifice throw" used in BJJ to counter single-leg takedowns.
+    
+- **directionality**: `Rear Corner / Sacrifice`
+    
+- **setup**: As uke shoots for a leg or pushes into you, grab their belt or use a Kimura grip.
+    
+- **steps**:
+    
+    - Sit back and pull uke onto your chest.
+        
+    - Place your instep against uke's inner thigh and "flick" them over your head as you roll to your back.
+        
+- **reviewStatus**: `ready`
+    
+
+#### **Ezekiel Choke (Sode-guruma-jime)**
+
+- **why add it**: A rare choke that can be applied effectively from _inside_ someone's guard or from the top of _Mount_.
+    
+- **practice**: `Jiu-Jitsu / Judo`
+    
+- **steps**: Reach behind uke's neck, grab your own sleeve, and use your other forearm to scissor across their throat.
+    
+- **reviewStatus**: `ready`
+
+Positional Hierachy
+https://www.whitebeltclub.com/positional-hierarchy
+
+other
+https://www.youtube.com/watch?v=3_rbDiGcyaA
+
+https://www.youtube.com/watch?v=7nquldxUwQI
+
+**Ippon Seoi Nage**[https://www.youtube.com/watch?v=gim7y77BpBE](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3Dgim7y77BpBE)**Ashi Guruma**[https://www.youtube.com/watch?v=jGg3yjj4CCM](https://www.youtube.com/watch?v=jGg3yjj4CCM)**Harai Tsurikomi Ashi**[https://www.youtube.com/watch?v=wP2-1i4_OFU](https://www.youtube.com/watch?v=wP2-1i4_OFU)**Hane Goshi**[https://judo.ijf.org/techniques/Hane-goshi](https://judo.ijf.org/techniques/Hane-goshi)**Hadaka Jime**[https://www.youtube.com/watch?v=zgctTFb3XlA](https://www.youtube.com/watch?v=zgctTFb3XlA)**Ude Hishigi Juji Gatame**[https://www.youtube.com/watch?v=OWgSOlCuMXw](https://www.youtube.com/watch?v=OWgSOlCuMXw)**Osoto Gari**[https://www.youtube.com/watch?v=c-A_nP7mKAc](https://www.youtube.com/watch?v=c-A_nP7mKAc)**O Goshi**[https://www.youtube.com/watch?v=yhu1mfy2vJ4](https://www.youtube.com/watch?v=yhu1mfy2vJ4)**Deashi Harai**[https://www.youtube.com/watch?v=4BUUvqxi_Kk](https://www.youtube.com/watch?v=4BUUvqxi_Kk)
+
+**Triangle Choke**[https://www.youtube.com/watch?v=9m9VA9StG4w](https://www.youtube.com/watch?v=9m9VA9StG4w)**Scissor Sweep**[https://www.youtube.com/watch?v=bVBMPm_jE2o](https://www.youtube.com/watch?v=bVBMPm_jE2o)**Hip Bump Sweep**[https://www.youtube.com/watch?v=YvJ-PVhKiWI](https://www.youtube.com/watch?v=YvJ-PVhKiWI)**Knee Cut Pass**[https://www.youtube.com/watch?v=g6MK2Eepjuc](https://www.youtube.com/watch?v=g6MK2Eepjuc)**Toreando Pass**[https://www.youtube.com/watch?v=eQ2BGqyvndU](https://www.youtube.com/watch?v=eQ2BGqyvndU)**Double Under Pass**[https://www.youtube.com/watch?v=JPvwJ0tAVo8](https://www.youtube.com/watch?v=JPvwJ0tAVo8)
+
+### **Final Judo Pins & Chokes (Katame-waza)**
+
+#### **Kami-shiho-gatame (Upper Four-Corner Hold)**
+
+- **YouTube**: [IJF Official: Kami-shiho-gatame](https://judo.ijf.org/techniques/Kami-shiho-gatame)
+    
+- **Steps**:
+    
+    - Position yourself above the opponent's head, facing their feet.
+        
+    - Reach both arms under the opponent's shoulders and grab their belt on both sides.
+        
+    - Lower your chest onto their face/chest and spread your knees wide for a low, stable base.
+        
+- **Review Status**: `ready`
+    
+
+#### **Yoko-shiho-gatame (Side Four-Corner Hold)**
+
+- **YouTube**: [IJF Official: Yoko-shiho-gatame](https://judo.ijf.org/techniques/Yoko-shiho-gatame)
+    
+- **Steps**:
+    
+    - From the side, reach your near arm under the opponent's neck to grab the far collar or shoulder.
+        
+    - Pass your other arm between their legs to grip the belt or trousers.
+        
+    - Drive your weight into their solar plexus while keeping your head low.
+        
+- **Review Status**: `ready`
+    
+
+#### **Kata-ha-jime (Single Wing Strangle)**
+
+- **YouTube**: [IJF Official: Kata-ha-jime](https://judo.ijf.org/techniques/Kataha-jime)
+    
+- **Steps**:
+    
+    - From behind the opponent (often in Turtle), reach one arm around the neck to grab the far-side lapel.
+        
+    - Slip your other hand under their armpit and place the back of that hand against the back of their neck.
+        
+    - Pull the lapel while pushing the head forward to finish.
+        
+- **Review Status**: `ready`
+    
+
+---
+
+### **Final BJJ Essentials (Escapes & Control)**
+
+#### **Elbow Escape from Mount**
+
+- **YouTube**: [Fundamental Elbow Escape Mechanics](https://www.youtube.com/watch?v=tCEL3U6N0GA)
+    
+- **Steps**:
+    
+    - Turn onto your side and create a frame with your forearms against the opponent's hip.
+        
+    - Use your bottom elbow to "push" the opponent's knee down while you shrimp your hips away.
+        
+    - Slide your bottom leg through the gap to recover half-guard or full guard.
+        
+- **Review Status**: `ready`
+    
+
+#### **Back Retention (Seatbelt Control)**
+
+- **YouTube**: [Seatbelt Details & Back Retention Drills](https://www.youtube.com/watch?v=a_vBCtRDlfY)
+    
+- **Steps**:
+    
+    - Wrap one arm over the opponent's shoulder and the other under their armpit (Seatbelt Grip).
+        
+    - Keep your chest glued to their back and your chin tucked behind their shoulder.
+        
+    - If they try to slide out, use your "hooks" (legs) and the seatbelt to pull them back to center.
+        
+- **Review Status**: `ready`

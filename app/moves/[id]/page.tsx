@@ -131,6 +131,33 @@ export default async function MovePage({ params }: MovePageProps) {
             </ul>
           </article>
 
+          {move.decisionView ? (
+            <article className="detail-panel">
+              <div className="section-heading">
+                <div>
+                  <h3>{move.decisionView.title}</h3>
+                  <p className="muted-label">First test of the position to reaction to next action model.</p>
+                </div>
+              </div>
+              <div className="decision-summary">
+                <p><strong>From position:</strong> {move.decisionView.fromPosition}</p>
+                <p><strong>Action potential:</strong> {move.decisionView.actionPotential}</p>
+              </div>
+              <div className="decision-branches">
+                {move.decisionView.branches.map((branch) => (
+                  <div key={`${branch.trigger}-${branch.action}`} className="decision-branch">
+                    <p><strong>If:</strong> {branch.trigger}</p>
+                    <p><strong>Then:</strong> {branch.moveId ? <Link className="text-link" href={`/moves/${branch.moveId}`}>{branch.action}</Link> : branch.action}</p>
+                    {branch.leadsTo ? <p><strong>Leads to:</strong> {branch.leadsTo}</p> : null}
+                  </div>
+                ))}
+              </div>
+              {move.decisionView.fallback ? (
+                <p className="muted-label"><strong>Fallback:</strong> {move.decisionView.fallback}</p>
+              ) : null}
+            </article>
+          ) : null}
+
           <MoveNotes moveId={move.id} />
         </div>
 
