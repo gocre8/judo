@@ -4,7 +4,7 @@ import { MoveActions } from "@/components/MoveActions";
 import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
 import { moveMap, moves } from "@/data/moves";
-import { MoveResource } from "@/lib/types";
+import { DecisionCue, MoveResource } from "@/lib/types";
 
 type MovePageProps = {
   params: Promise<{ id: string }>;
@@ -33,6 +33,29 @@ function getYouTubeEmbedUrl(resource: MoveResource) {
   }
 
   return null;
+}
+
+function getDecisionCue(cue?: DecisionCue) {
+  switch (cue) {
+    case "step":
+      return { symbol: "→", label: "Step" };
+    case "block":
+      return { symbol: "⊘", label: "Block" };
+    case "lateral":
+      return { symbol: "⇆", label: "Side" };
+    case "ankle":
+      return { symbol: "⤴", label: "Ankle" };
+    case "wide-base":
+      return { symbol: "△", label: "Base" };
+    case "posture-up":
+      return { symbol: "↑", label: "Posture" };
+    case "arm-split":
+      return { symbol: "1/1", label: "Arms" };
+    case "transition":
+      return { symbol: "↺", label: "Switch" };
+    default:
+      return null;
+  }
 }
 
 export default async function MovePage({ params }: MovePageProps) {
@@ -146,9 +169,10 @@ export default async function MovePage({ params }: MovePageProps) {
               <div className="decision-branches">
                 {move.decisionView.branches.map((branch) => (
                   <div key={`${branch.trigger}-${branch.action}`} className="decision-branch">
-                    {branch.icon ? (
+                    {getDecisionCue(branch.cue) ? (
                       <span className="decision-branch__icon" aria-hidden="true">
-                        {branch.icon}
+                        <span className="decision-branch__icon-symbol">{getDecisionCue(branch.cue)?.symbol}</span>
+                        <span className="decision-branch__icon-label">{getDecisionCue(branch.cue)?.label}</span>
                       </span>
                     ) : null}
                     <p><strong>If:</strong> {branch.trigger}</p>

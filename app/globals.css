@@ -521,23 +521,37 @@ p {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.7);
   position: relative;
-  padding-left: 52px;
+  padding-left: 74px;
 }
 
 .decision-branch__icon {
   position: absolute;
   left: 14px;
   top: 14px;
-  width: 26px;
-  height: 26px;
+  width: 46px;
+  min-height: 46px;
   display: grid;
   place-items: center;
-  border-radius: 999px;
+  gap: 2px;
+  padding: 6px 4px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: #f5f5f2;
   color: var(--ink);
-  font-size: 0.75rem;
-  font-weight: 600;
+}
+
+.decision-branch__icon-symbol {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.decision-branch__icon-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 .connection-group {

@@ -39,8 +39,18 @@ export type MoveResource = {
   kind: "video" | "reference";
 };
 
+export type DecisionCue =
+  | "step"
+  | "block"
+  | "lateral"
+  | "ankle"
+  | "wide-base"
+  | "posture-up"
+  | "arm-split"
+  | "transition";
+
 export type DecisionBranch = {
-  icon?: string;
+  cue?: DecisionCue;
   trigger: string;
   action: string;
   moveId?: string;
