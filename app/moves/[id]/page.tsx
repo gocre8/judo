@@ -81,6 +81,10 @@ function getKuzushiArrow(direction?: KuzushiDirection) {
   }
 }
 
+function getKuzushiLabel(direction?: KuzushiDirection) {
+  return direction ? direction.replace("-", " ") : null;
+}
+
 export default async function MovePage({ params }: MovePageProps) {
   const { id } = await params;
   const move = moveMap[id];
@@ -106,6 +110,8 @@ export default async function MovePage({ params }: MovePageProps) {
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
   const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
+  const secondaryKuzushiArrow =
+    practice === "Judo" ? getKuzushiArrow(move.secondaryKuzushiDirection) : null;
   const moveIndex = moves.findIndex((entry) => entry.id === move.id);
   const previousMove = moves[(moveIndex - 1 + moves.length) % moves.length];
   const nextMove = moves[(moveIndex + 1) % moves.length];
@@ -127,7 +133,19 @@ export default async function MovePage({ params }: MovePageProps) {
           <div>
             <div className="detail-title-row">
               <h1>{move.name}</h1>
-              {kuzushiArrow ? <span className="kuzushi-badge kuzushi-badge--large" aria-label={`Primary kuzushi direction ${move.primaryKuzushiDirection}`}>{kuzushiArrow}</span> : null}
+              {kuzushiArrow ? (
+                <span
+                  className="kuzushi-pair"
+                  aria-label={`Primary kuzushi direction ${getKuzushiLabel(move.primaryKuzushiDirection)}${move.secondaryKuzushiDirection ? `, secondary ${getKuzushiLabel(move.secondaryKuzushiDirection)}` : ""}`}
+                >
+                  <span className="kuzushi-badge kuzushi-badge--large">{kuzushiArrow}</span>
+                  {secondaryKuzushiArrow ? (
+                    <span className="kuzushi-badge kuzushi-badge--secondary kuzushi-badge--large">
+                      {secondaryKuzushiArrow}
+                    </span>
+                  ) : null}
+                </span>
+              ) : null}
             </div>
             <p className="muted-label">{move.japaneseName}</p>
             <p className="muted-label">{practice} · {move.section} · {move.family}</p>

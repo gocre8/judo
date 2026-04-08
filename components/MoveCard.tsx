@@ -62,10 +62,16 @@ function getKuzushiArrow(direction?: KuzushiDirection) {
   }
 }
 
+function getKuzushiLabel(direction?: KuzushiDirection) {
+  return direction ? direction.replace("-", " ") : null;
+}
+
 export function MoveCard({ move, progress }: MoveCardProps) {
   const connectionPreview = getConnectionPreview(move);
   const practice = move.practice ?? "Judo";
   const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
+  const secondaryKuzushiArrow =
+    practice === "Judo" ? getKuzushiArrow(move.secondaryKuzushiDirection) : null;
 
   return (
     <Link href={`/moves/${move.id}`} className="move-card move-card--link">
@@ -74,7 +80,15 @@ export function MoveCard({ move, progress }: MoveCardProps) {
         <div>
           <div className="move-card__title-row">
             <h3>{move.name}</h3>
-            {kuzushiArrow ? <span className="kuzushi-badge" aria-label={`Primary kuzushi direction ${move.primaryKuzushiDirection}`}>{kuzushiArrow}</span> : null}
+            {kuzushiArrow ? (
+              <span
+                className="kuzushi-pair"
+                aria-label={`Primary kuzushi direction ${getKuzushiLabel(move.primaryKuzushiDirection)}${move.secondaryKuzushiDirection ? `, secondary ${getKuzushiLabel(move.secondaryKuzushiDirection)}` : ""}`}
+              >
+                <span className="kuzushi-badge">{kuzushiArrow}</span>
+                {secondaryKuzushiArrow ? <span className="kuzushi-badge kuzushi-badge--secondary">{secondaryKuzushiArrow}</span> : null}
+              </span>
+            ) : null}
           </div>
           <p className="muted-label">{move.japaneseName}</p>
           <p className="muted-label">{move.family}</p>

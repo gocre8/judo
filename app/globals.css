@@ -345,6 +345,12 @@ p {
   gap: 8px;
 }
 
+.kuzushi-pair {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .kuzushi-badge {
   width: 24px;
   height: 24px;
@@ -357,6 +363,10 @@ p {
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1;
+}
+
+.kuzushi-badge--secondary {
+  background: transparent;
 }
 
 .kuzushi-badge--large {
