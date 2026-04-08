@@ -119,6 +119,24 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
             <option value="Gi">Gi</option>
             <option value="No-gi">No-gi</option>
           </select>
+          <select
+            className="select-input"
+            value={filters.kuzushi}
+            onChange={(event) =>
+              setFilter("kuzushi", event.target.value as LibraryFilters["kuzushi"])
+            }
+            aria-label="Filter by Judo kuzushi direction"
+          >
+            <option value="All">All directions</option>
+            <option value="forward">Forward ↑</option>
+            <option value="backward">Backward ↓</option>
+            <option value="left">Left ←</option>
+            <option value="right">Right →</option>
+            <option value="forward-right">Forward-right ↗</option>
+            <option value="forward-left">Forward-left ↖</option>
+            <option value="backward-right">Backward-right ↘</option>
+            <option value="backward-left">Backward-left ↙</option>
+          </select>
         </div>
         <div className="toggle-row">
           <button

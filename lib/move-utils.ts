@@ -8,6 +8,7 @@ export const defaultFilters: LibraryFilters = {
   difficulty: "All",
   situation: "All",
   training: "All",
+  kuzushi: "All",
   favoritesOnly: false,
   studiedOnly: false,
 };
@@ -41,6 +42,10 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       filters.situation === "All" || move.situationTags.includes(filters.situation);
     const matchesTraining =
       filters.training === "All" || move.situationTags.includes(filters.training);
+    const matchesKuzushi =
+      filters.kuzushi === "All" ||
+      move.primaryKuzushiDirection === filters.kuzushi ||
+      move.secondaryKuzushiDirection === filters.kuzushi;
     const matchesFavorite = !filters.favoritesOnly || moveProgress?.favorite;
     const matchesStudied = !filters.studiedOnly || moveProgress?.studied;
 
@@ -51,6 +56,7 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       matchesDifficulty &&
       matchesSituation &&
       matchesTraining &&
+      matchesKuzushi &&
       matchesFavorite &&
       matchesStudied
     );

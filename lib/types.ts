@@ -126,6 +126,7 @@ export type LibraryFilters = {
   difficulty: "All" | MoveDifficulty;
   situation: "All" | "Standing" | "Groundwork";
   training: "All" | "Gi" | "No-gi";
+  kuzushi: "All" | KuzushiDirection;
   favoritesOnly: boolean;
   studiedOnly: boolean;
 };
