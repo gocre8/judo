@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MoveImage } from "@/components/MoveImage";
 import { moveMap } from "@/data/moves";
-import { Move, UserMoveProgress } from "@/lib/types";
+import { KuzushiDirection, Move, UserMoveProgress } from "@/lib/types";
 
 type MoveCardProps = {
   move: Move;
@@ -39,15 +39,43 @@ function getConnectionPreview(move: Move) {
   return fallbackMoves.length > 0 ? [{ label: "Connects to", moves: fallbackMoves }] : [];
 }
 
+function getKuzushiArrow(direction?: KuzushiDirection) {
+  switch (direction) {
+    case "forward":
+      return "↑";
+    case "backward":
+      return "↓";
+    case "left":
+      return "←";
+    case "right":
+      return "→";
+    case "forward-right":
+      return "↗";
+    case "forward-left":
+      return "↖";
+    case "backward-right":
+      return "↘";
+    case "backward-left":
+      return "↙";
+    default:
+      return null;
+  }
+}
+
 export function MoveCard({ move, progress }: MoveCardProps) {
   const connectionPreview = getConnectionPreview(move);
+  const practice = move.practice ?? "Judo";
+  const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
 
   return (
     <Link href={`/moves/${move.id}`} className="move-card move-card--link">
       <MoveImage move={move} variant="card" />
       <div className="move-card__top">
         <div>
-          <h3>{move.name}</h3>
+          <div className="move-card__title-row">
+            <h3>{move.name}</h3>
+            {kuzushiArrow ? <span className="kuzushi-badge" aria-label={`Primary kuzushi direction ${move.primaryKuzushiDirection}`}>{kuzushiArrow}</span> : null}
+          </div>
           <p className="muted-label">{move.japaneseName}</p>
           <p className="muted-label">{move.family}</p>
         </div>

@@ -4,7 +4,7 @@ import { MoveActions } from "@/components/MoveActions";
 import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
 import { moveMap, moves } from "@/data/moves";
-import { DecisionCue, MoveResource } from "@/lib/types";
+import { DecisionCue, KuzushiDirection, MoveResource } from "@/lib/types";
 
 type MovePageProps = {
   params: Promise<{ id: string }>;
@@ -58,6 +58,29 @@ function getDecisionCue(cue?: DecisionCue) {
   }
 }
 
+function getKuzushiArrow(direction?: KuzushiDirection) {
+  switch (direction) {
+    case "forward":
+      return "↑";
+    case "backward":
+      return "↓";
+    case "left":
+      return "←";
+    case "right":
+      return "→";
+    case "forward-right":
+      return "↗";
+    case "forward-left":
+      return "↖";
+    case "backward-right":
+      return "↘";
+    case "backward-left":
+      return "↙";
+    default:
+      return null;
+  }
+}
+
 export default async function MovePage({ params }: MovePageProps) {
   const { id } = await params;
   const move = moveMap[id];
@@ -82,6 +105,7 @@ export default async function MovePage({ params }: MovePageProps) {
     .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
+  const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
   const moveIndex = moves.findIndex((entry) => entry.id === move.id);
   const previousMove = moves[(moveIndex - 1 + moves.length) % moves.length];
   const nextMove = moves[(moveIndex + 1) % moves.length];
@@ -101,7 +125,10 @@ export default async function MovePage({ params }: MovePageProps) {
       <section className="detail-hero">
         <div className="detail-hero__top">
           <div>
-            <h1>{move.name}</h1>
+            <div className="detail-title-row">
+              <h1>{move.name}</h1>
+              {kuzushiArrow ? <span className="kuzushi-badge kuzushi-badge--large" aria-label={`Primary kuzushi direction ${move.primaryKuzushiDirection}`}>{kuzushiArrow}</span> : null}
+            </div>
             <p className="muted-label">{move.japaneseName}</p>
             <p className="muted-label">{practice} · {move.section} · {move.family}</p>
           </div>

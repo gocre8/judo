@@ -19,6 +19,15 @@ export type MoveSection =
   | "Submissions"
   | "Escapes";
 export type MoveFamily = string;
+export type KuzushiDirection =
+  | "forward"
+  | "backward"
+  | "left"
+  | "right"
+  | "forward-right"
+  | "forward-left"
+  | "backward-right"
+  | "backward-left";
 
 export type DiagramMarker = {
   label: string;
@@ -71,6 +80,8 @@ export type Move = {
   name: string;
   japaneseName: string;
   imageSrc?: string;
+  primaryKuzushiDirection?: KuzushiDirection;
+  secondaryKuzushiDirection?: KuzushiDirection;
   section: MoveSection;
   family: MoveFamily;
   category: MoveCategory;

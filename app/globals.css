@@ -338,6 +338,33 @@ p {
   align-items: flex-start;
 }
 
+.move-card__title-row,
+.detail-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kuzushi-badge {
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f5f5f2;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kuzushi-badge--large {
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+}
+
 .detail-hero__nav {
   display: flex;
   gap: 6px;
