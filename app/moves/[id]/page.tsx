@@ -146,6 +146,11 @@ export default async function MovePage({ params }: MovePageProps) {
               <div className="decision-branches">
                 {move.decisionView.branches.map((branch) => (
                   <div key={`${branch.trigger}-${branch.action}`} className="decision-branch">
+                    {branch.icon ? (
+                      <span className="decision-branch__icon" aria-hidden="true">
+                        {branch.icon}
+                      </span>
+                    ) : null}
                     <p><strong>If:</strong> {branch.trigger}</p>
                     <p><strong>Then:</strong> {branch.moveId ? <Link className="text-link" href={`/moves/${branch.moveId}`}>{branch.action}</Link> : branch.action}</p>
                     {branch.leadsTo ? <p><strong>Leads to:</strong> {branch.leadsTo}</p> : null}

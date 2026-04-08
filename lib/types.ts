@@ -40,6 +40,7 @@ export type MoveResource = {
 };
 
 export type DecisionBranch = {
+  icon?: string;
   trigger: string;
   action: string;
   moveId?: string;

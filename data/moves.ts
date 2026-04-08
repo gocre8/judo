@@ -184,23 +184,27 @@ export const moves: Move[] = [
       actionPotential: "The opponent steps and the advancing foot becomes light.",
       branches: [
         {
+          icon: "→",
           trigger: "The stepping foot stays available and glides forward.",
           action: "Attack Deashi Harai directly.",
           leadsTo: "Clean forward foot sweep finish.",
         },
         {
+          icon: "⊘",
           trigger: "The opponent shortens the step or blocks the sweep but the knee line stays exposed.",
           action: "Switch to Hiza Guruma.",
           moveId: "hiza-guruma",
           leadsTo: "Wheel over the knee line.",
         },
         {
+          icon: "⇆",
           trigger: "The opponent continues moving sideways with both feet traveling together.",
           action: "Switch to Okuriashi Harai.",
           moveId: "okuriashi-harai",
           leadsTo: "Catch both feet in motion.",
         },
         {
+          icon: "⤴",
           trigger: "The opponent keeps moving but the ankle line is more available than the stepping foot.",
           action: "Switch to Sasae Tsurikomi Ashi.",
           moveId: "sasae-tsurikomi-ashi",
@@ -582,24 +586,28 @@ export const moves: Move[] = [
       actionPotential: "The opponent reacts to posture breaking by posting, widening base, or leaving one arm in and one arm out.",
       branches: [
         {
+          icon: "△",
           trigger: "The opponent bases wide and leans forward.",
           action: "Attack Scissor Sweep.",
           moveId: "scissor-sweep",
           leadsTo: "Come on top into mount or top position.",
         },
         {
+          icon: "↑",
           trigger: "The opponent postures up and gives a sit-up lane.",
           action: "Attack Hip Bump Sweep.",
           moveId: "hip-bump-sweep",
           leadsTo: "Knock them over and come up on top.",
         },
         {
+          icon: "1/1",
           trigger: "One arm stays inside and one arm stays outside.",
           action: "Attack Triangle Choke.",
           moveId: "triangle-choke",
           leadsTo: "Submission or armbar transition.",
         },
         {
+          icon: "↺",
           trigger: "The opponent protects the triangle but leaves the elbow line exposed.",
           action: "Switch to Armbar from Guard.",
           moveId: "closed-guard-armbar",
