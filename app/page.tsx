@@ -16,6 +16,9 @@ export default function HomePage() {
           <Link className="action-pill action-pill--ghost" href="/flows">
             Flows
           </Link>
+          <Link className="action-pill action-pill--ghost" href="/quiz">
+            Quiz
+          </Link>
           <Link className="action-pill action-pill--ghost" href="/progress">
             Progress
           </Link>

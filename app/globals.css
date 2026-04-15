@@ -667,6 +667,28 @@ p {
   letter-spacing: 0.06em;
 }
 
+.quiz-card {
+  gap: 16px;
+}
+
+.quiz-card__prompt,
+.quiz-card__answer {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.quiz-card__prompt p {
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.quiz-card__answer {
+  display: grid;
+  gap: 8px;
+}
+
 .decision-branch {
   display: grid;
   gap: 6px;
