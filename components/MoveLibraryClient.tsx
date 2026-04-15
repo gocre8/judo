@@ -1,6 +1,7 @@
 "use client";
 
 import { useDeferredValue, useState } from "react";
+import { LibraryFlowOverview } from "@/components/LibraryFlowOverview";
 import { MoveCard } from "@/components/MoveCard";
 import { CurriculumBoard } from "@/components/CurriculumBoard";
 import { moves } from "@/data/moves";
@@ -157,6 +158,7 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
       </section>
 
       <CurriculumBoard />
+      <LibraryFlowOverview />
 
       {filteredMoves.length > 0 ? (
         <section className="move-grid">
