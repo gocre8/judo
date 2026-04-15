@@ -14,6 +14,8 @@ type QuizQuestion = {
   flowClusterId?: string;
 };
 
+type QuizMode = "all" | QuizQuestion["kind"];
+
 function shuffle<T>(items: T[]) {
   return [...items].sort(() => Math.random() - 0.5);
 }
@@ -68,9 +70,14 @@ function buildQuizQuestions() {
 }
 
 export function QuizClient() {
-  const questions = useMemo(() => buildQuizQuestions(), []);
+  const allQuestions = useMemo(() => buildQuizQuestions(), []);
+  const [mode, setMode] = useState<QuizMode>("all");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const questions = useMemo(
+    () => (mode === "all" ? allQuestions : allQuestions.filter((question) => question.kind === mode)),
+    [allQuestions, mode],
+  );
 
   const current = questions[currentIndex];
 
@@ -99,6 +106,53 @@ export function QuizClient() {
         <span className="chip">
           {currentIndex + 1} / {questions.length}
         </span>
+      </div>
+
+      <div className="toggle-row" aria-label="Quiz mode">
+        <button
+          type="button"
+          className={mode === "all" ? "action-pill" : "toggle-button"}
+          onClick={() => {
+            setMode("all");
+            setCurrentIndex(0);
+            setRevealed(false);
+          }}
+        >
+          All
+        </button>
+        <button
+          type="button"
+          className={mode === "name" ? "action-pill" : "toggle-button"}
+          onClick={() => {
+            setMode("name");
+            setCurrentIndex(0);
+            setRevealed(false);
+          }}
+        >
+          Names
+        </button>
+        <button
+          type="button"
+          className={mode === "direction" ? "action-pill" : "toggle-button"}
+          onClick={() => {
+            setMode("direction");
+            setCurrentIndex(0);
+            setRevealed(false);
+          }}
+        >
+          Directions
+        </button>
+        <button
+          type="button"
+          className={mode === "flow" ? "action-pill" : "toggle-button"}
+          onClick={() => {
+            setMode("flow");
+            setCurrentIndex(0);
+            setRevealed(false);
+          }}
+        >
+          Flows
+        </button>
       </div>
 
       <div className="quiz-card__prompt">

@@ -23,7 +23,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["tai-otoshi", "seoi-nage"],
     alternativeMoveIds: ["tai-otoshi", "seoi-nage"],
     diagram: { pose: "throw-entry", cue: "Pull first, then sit.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=880WbHvHv6A",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "uchi-mata",
@@ -48,7 +55,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["harai-goshi", "tai-otoshi"],
     alternativeMoveIds: ["harai-goshi", "tai-otoshi"],
     diagram: { pose: "hip-throw", cue: "Lift before the leg rises.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=iUpSu5J-bgw",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "harai-goshi",
@@ -72,7 +86,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["uchi-mata", "o-goshi"],
     alternativeMoveIds: ["uchi-mata", "o-goshi"],
     diagram: { pose: "hip-throw", cue: "Hip first, sweep second.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=qTo8HlAAkOo",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "tai-otoshi",
@@ -97,7 +118,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["seoi-nage", "tomoe-nage"],
     alternativeMoveIds: ["seoi-nage", "tomoe-nage"],
     diagram: { pose: "throw-entry", cue: "Hands do the throw.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=4x6S3Q-Ktv8",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "tsurikomi-goshi",
@@ -121,7 +149,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["o-goshi", "uki-goshi"],
     alternativeMoveIds: ["o-goshi", "uki-goshi"],
     diagram: { pose: "hip-throw", cue: "Lift as you turn.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=McfzA0yRVt4",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "okuriashi-harai",
@@ -174,7 +209,14 @@ export const moves: Move[] = [
       fallback: "Keep them moving sideways and reset the rhythm instead of sweeping a planted foot.",
     },
     diagram: { pose: "foot-sweep", cue: "Catch the motion, not the stance.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=nw1ZdRjrdRI",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "koshi-guruma",
@@ -198,7 +240,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["o-goshi", "harai-goshi"],
     alternativeMoveIds: ["o-goshi", "harai-goshi"],
     diagram: { pose: "hip-throw", cue: "Turn close around the head.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=SU7Id6uVJ44",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "deashi-harai",
@@ -289,7 +338,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kouchi-gari", "osoto-gari"],
     alternativeMoveIds: ["kouchi-gari", "osoto-gari"],
     diagram: { pose: "throw-entry", cue: "Small reap, sharp timing.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=jeQ541ScLB4",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kouchi-gari",
@@ -313,7 +369,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kosoto-gari", "ouchi-gari"],
     alternativeMoveIds: ["kosoto-gari", "ouchi-gari"],
     diagram: { pose: "throw-entry", cue: "Bring uke onto the inside line first.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=3Jb3tZvr9Ng",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "hiza-guruma",
@@ -366,7 +429,14 @@ export const moves: Move[] = [
       fallback: "Rebuild movement and sleeve-collar direction before trying to block a static knee line.",
     },
     diagram: { pose: "foot-sweep", cue: "Wheel over the knee line.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=JPJx9-oAVns",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "sasae-tsurikomi-ashi",
@@ -418,7 +488,20 @@ export const moves: Move[] = [
       fallback: "Keep lift-pull pressure and wait for a cleaner ankle or knee line instead of forcing the block.",
     },
     diagram: { pose: "foot-sweep", cue: "Lift and pull make the block work.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan listing",
+        url: "https://kdkjd.org/names-of-judo-techniques/",
+        source: "Kodokan Global",
+        kind: "reference",
+      },
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=c-A_nP7mKAc",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "uki-goshi",
@@ -442,7 +525,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["o-goshi", "tsurikomi-goshi"],
     alternativeMoveIds: ["o-goshi", "tsurikomi-goshi"],
     diagram: { pose: "hip-throw", cue: "Light hip, continuous turn.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=bPKwtB4lyOQ",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "osoto-gari",
@@ -469,7 +559,7 @@ export const moves: Move[] = [
     resources: [
       {
         label: "Official Kodokan demo",
-        url: "https://www.youtube.com/watch?v=c-A_nP7mKAc",
+        url: "https://www.youtube.com/watch?v=WnETpFEyDRw",
         source: "KODOKAN YouTube",
         kind: "video",
       },
@@ -528,7 +618,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kouchi-gari", "osoto-gari"],
     alternativeMoveIds: ["kouchi-gari", "osoto-gari"],
     diagram: { pose: "throw-entry", cue: "Drive through the center line.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=0itJFhV9pDQ",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "seoi-nage",
@@ -553,7 +650,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["tai-otoshi", "tomoe-nage"],
     alternativeMoveIds: ["tai-otoshi", "tomoe-nage"],
     diagram: { pose: "throw-entry", cue: "Turn under, then lift.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=zIq0xI0ogxk",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kesa-gatame",
@@ -588,7 +692,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kata-gatame", "juji-gatame"],
     alternativeMoveIds: ["kata-gatame", "yoko-shiho-gatame"],
     diagram: { pose: "ground-pin", cue: "Pour your weight diagonally through the chest.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=NDaQuJOFBYk",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kata-gatame",
@@ -623,7 +734,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "juji-gatame"],
     alternativeMoveIds: ["kesa-gatame", "yoko-shiho-gatame"],
     diagram: { pose: "ground-pin", cue: "Settle first, squeeze second.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Official Kodokan demo",
+        url: "https://www.youtube.com/watch?v=zQR3IOXxO_Q",
+        source: "KODOKAN YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "juji-gatame",
@@ -664,6 +782,133 @@ export const moves: Move[] = [
         url: "https://www.youtube.com/watch?v=OWgSOlCuMXw",
         source: "KODOKAN YouTube",
         kind: "video",
+      },
+    ],
+  },
+  {
+    id: "half-guard-bottom",
+    practice: "Jiu-Jitsu",
+    name: "Half Guard Bottom",
+    japaneseName: "Half Guard Bottom",
+    section: "Guard",
+    family: "Half guard",
+    category: "Position",
+    difficulty: "Beginner",
+    situationTags: ["Groundwork", "Bottom guard", "Gi", "No-gi"],
+    shortDescription: "Clamp one leg, build frames, and turn onto your side before the passer settles.",
+    setup: "Control the trapped leg and protect your upper-body frames before chasing sweeps or guard recovery.",
+    steps: [
+      "Clamp the trapped leg and keep your knees active.",
+      "Frame and fight for inside shoulder position.",
+      "Turn onto your side instead of staying flat.",
+      "Choose whether to recover guard, get underneath, or stand back up.",
+    ],
+    commonMistakes: [
+      "Accepting a flat half guard with no frame.",
+      "Holding the leg without improving head and shoulder position.",
+      "Attacking from a losing upper-body battle.",
+    ],
+    safetyNotes: [
+      "Keep knee pressure controlled while entangling the leg.",
+      "Frame on safe structures rather than the throat.",
+    ],
+    keyPrinciples: ["Knee line alive", "Frames first", "Stay on your side"],
+    setupForIds: ["closed-guard", "knee-cut-pass"],
+    worksWellWithIds: ["elbow-escape", "closed-guard"],
+    relatedMoveIds: ["closed-guard", "knee-cut-pass", "elbow-escape"],
+    alternativeMoveIds: ["closed-guard", "leg-drag"],
+    diagram: { pose: "ground-pin", cue: "Half guard works best when you are not flat.", markers: [] },
+    resources: [
+      {
+        label: "Move inventory reference",
+        url: "https://bjjequipment.com/jiu-jitsu-moves/",
+        source: "BJJ Equipment",
+        kind: "reference",
+      },
+    ],
+  },
+  {
+    id: "back-control",
+    practice: "Jiu-Jitsu",
+    name: "Back Control",
+    japaneseName: "Back Control",
+    section: "Back control",
+    family: "Back control",
+    category: "Position",
+    difficulty: "Intermediate",
+    situationTags: ["Groundwork", "Top control", "Gi", "No-gi"],
+    shortDescription: "Control chest-to-back connection and the hook line before exposing the choke.",
+    setup: "Secure upper-body connection and at least one reliable hook or body control before attacking the neck.",
+    steps: [
+      "Connect chest to back and position your head safely behind theirs.",
+      "Control the upper body before chasing the choke.",
+      "Manage the hook line so they cannot turn freely.",
+      "Attack the neck only after the position is stable.",
+    ],
+    commonMistakes: [
+      "Reaching for the choke before controlling the upper body.",
+      "Letting the hooks go loose while chasing the finish.",
+      "Falling to the wrong side and losing connection.",
+    ],
+    safetyNotes: [
+      "Apply all choke pressure gradually and release on tap.",
+      "Avoid neck cranking while adjusting grips.",
+    ],
+    keyPrinciples: ["Chest-to-back connection", "Hook control", "Control before choke"],
+    setupForIds: ["rear-naked-choke"],
+    worksWellWithIds: ["rear-naked-choke", "back-escape"],
+    relatedMoveIds: ["rear-naked-choke", "back-escape"],
+    alternativeMoveIds: ["rear-naked-choke", "mount"],
+    diagram: { pose: "ground-pin", cue: "Secure the ride before reaching for the neck.", markers: [] },
+    resources: [
+      {
+        label: "Move inventory reference",
+        url: "https://bjjequipment.com/jiu-jitsu-moves/",
+        source: "BJJ Equipment",
+        kind: "reference",
+      },
+    ],
+  },
+  {
+    id: "rear-naked-choke",
+    practice: "Jiu-Jitsu",
+    name: "Rear Naked Choke",
+    japaneseName: "Rear Naked Choke",
+    section: "Back control",
+    family: "Back control",
+    category: "Choke",
+    difficulty: "Intermediate",
+    situationTags: ["Groundwork", "Submission", "Gi", "No-gi"],
+    shortDescription: "Hide the choking hand, win the hand fight, and finish by closing the elbow line from back control.",
+    setup: "Establish stable back control and clear the opponent's hands before sliding the choking arm into place.",
+    steps: [
+      "Hide the choking hand while controlling the upper body.",
+      "Slide the choking arm across the neck line.",
+      "Lock the support hand and keep chest-to-back connection.",
+      "Finish by closing the elbows instead of yanking backward.",
+    ],
+    commonMistakes: [
+      "Trying to choke before winning the hand fight.",
+      "Leaving the choking hand visible too early.",
+      "Pulling backward instead of closing the elbow line.",
+    ],
+    safetyNotes: [
+      "Apply slowly and release immediately on tap.",
+      "Never crank the jaw or neck as a substitute for the choke.",
+    ],
+    keyPrinciples: ["Hide the hand", "Win the hand fight", "Close the elbow line"],
+    followUpIds: ["back-control"],
+    counteredByIds: ["back-escape"],
+    worksWellWithIds: ["back-control"],
+    relatedMoveIds: ["back-control", "back-escape"],
+    alternativeMoveIds: ["back-control", "mount"],
+    diagram: { pose: "choke", cue: "Control first, then close the choke.", markers: [] },
+    resources: [
+      {
+        label: "Move inventory reference",
+        url: "https://bjjequipment.com/jiu-jitsu-moves/",
+        source: "BJJ Equipment",
+        kind: "reference",
       },
     ],
   },
