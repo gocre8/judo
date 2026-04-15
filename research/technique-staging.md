@@ -214,6 +214,447 @@ Primary and recurring sources worth keeping near the top:
 - IBJJF positional and terminology baseline
 - [BJJ Equipment: Jiu-Jitsu Moves](https://bjjequipment.com/jiu-jitsu-moves/) for move browsing and plain-language cross-checking
 
+### BJJ Equipment Capture
+
+This is a structured capture of the source so we can keep reusing it.
+It is a source inventory, not a claim that every item below should be imported directly into the app.
+
+- source:
+  - [BJJ Equipment: Jiu-Jitsu Moves](https://bjjequipment.com/jiu-jitsu-moves/)
+  - article title: `Jiu-Jitsu Moves: The Complete List Of All 352 BJJ Techniques`
+  - use for:
+    - move inventory expansion
+    - position-based variation ideas
+    - plain-language cross-checking
+  - avoid using as sole authority for:
+    - official naming
+    - legality assumptions
+    - exact competition rule interpretation
+
+#### Captured Top-Level Categories
+
+- `Submissions`
+- `Back Takes`
+- `Guard Passes`
+- `Sweeps`
+- `Throws & Takedowns`
+- `Escapes`
+
+#### Suggested Root Move -> Submove Structure
+
+Use the source as a tree, not a flat list.
+
+Recommended app-side pattern:
+
+```md
+- root move: `Triangle Choke`
+  - category: `Submission`
+  - submoves:
+    - `Triangle Choke from Closed Guard`
+    - `Triangle Choke from Open Guard`
+    - `Triangle Choke from Spider Guard`
+    - `Triangle Choke from Side Control`
+```
+
+This gives us:
+- a stable root move for searching and linking
+- position-specific submoves for actual study
+- cleaner action-potential chains by position and reaction
+
+#### Captured BJJ Position / Variation Structure
+
+Use these as source-side buckets when deciding what to stage next:
+
+- `Closed Guard`
+- `Open Guard`
+- `Half Guard`
+- `Half Butterfly Guard`
+- `Butterfly Guard`
+- `De La Riva Guard`
+- `Reverse De La Riva Guard`
+- `Single Leg X Guard`
+- `X Guard`
+- `Spider / Lasso Guard`
+- `Deep Half Guard`
+- `Turtle Position`
+- `Front Headlock`
+- `Back Control`
+- `Mount`
+- `Side Control`
+- `North South`
+- `Knee on Belly`
+- `Scarf Hold`
+- `Truck Position`
+- `411 / Saddle`
+- `50/50 Guard`
+- `Ashi Garami`
+
+#### Source-Derived Category -> Root Move -> Submove Trees
+
+These are the high-value source trees to keep reusing.
+
+##### Submissions
+
+- `Americana`
+  - submoves:
+    - `Americana from Half Guard (Top)`
+    - `Americana from Mount`
+    - `Americana from North South`
+    - `Americana from Scarf Hold (With Legs)`
+    - `Americana from Side Control`
+- `Armbar`
+  - submoves:
+    - `Armbar from Closed Guard`
+    - `Armbar from Mount`
+    - `Armbar from Side Control`
+    - `Armbar from Knee on Belly`
+    - `Armbar from Back Control`
+    - `Armbar from Open Guard`
+    - `Armbar from Turtle Position`
+- `Kimura`
+  - submoves:
+    - `Kimura from Closed Guard`
+    - `Kimura from Half Guard (Bottom)`
+    - `Kimura from Half Guard (Top)`
+    - `Kimura from Mount`
+    - `Kimura from North South`
+    - `Kimura from Side Control`
+    - `Kimura from Turtle Position`
+- `Omoplata`
+  - submoves:
+    - `Omoplata from Closed Guard`
+    - `Omoplata from De La Riva Guard`
+    - `Omoplata from Half Guard`
+    - `Omoplata from Lasso Guard`
+    - `Omoplata from Mount`
+    - `Omoplata from Open Guard`
+    - `Omoplata from Spider Guard`
+- `Rear Naked Choke`
+  - submoves:
+    - `Rear-Naked Choke from Back Control`
+    - `Rear-Naked Choke from Crucifix`
+    - `Rear-Naked Choke from Turtle Position`
+- `Triangle Choke`
+  - submoves:
+    - `Triangle Choke from Closed Guard`
+    - `Triangle Choke from Open Guard`
+    - `Triangle Choke from De La Riva Guard`
+    - `Triangle Choke from Lasso Guard`
+    - `Triangle Choke from Spider Guard`
+    - `Triangle Choke from Mount`
+    - `Triangle Choke from Side Control`
+
+##### Back Takes
+
+- `Back Take`
+  - submoves:
+    - `Arm Drag Back Take from Closed Guard`
+    - `Arm Drag Back Take from Knee on Belly`
+    - `Back Take from De La Riva via Berimbolo`
+    - `Back Take from De La Riva via Kiss of the Dragon`
+    - `Kimura Back Take from Half Guard (Bottom)`
+    - `Rolling Back Take from Half Guard (Top)`
+    - `Back Take from Leg Drag Position`
+    - `Back Take from Truck Position`
+    - `Back Take from X Guard`
+
+##### Guard Passes
+
+- `Body Lock Pass`
+  - submoves:
+    - `Body Lock Pass from Butterfly Guard`
+- `Knee Cut / Knee Slide`
+  - submoves:
+    - `Knee Cut / Knee Slide from Half Guard`
+- `Leg Drag`
+  - submoves:
+    - `Leg Drag from De La Riva Guard`
+    - `Snap Down Leg Drag from Open Guard`
+    - `Cross Body Ankle Lock from Leg Drag`
+    - `Back Take from Leg Drag Position`
+- `Over Under Pass`
+  - submoves:
+    - `Over Under from Open Guard`
+- `Toreador / Toreando Pass`
+  - submoves:
+    - `Toreador / Toreando Pass from Butterfly Guard`
+    - `Toreador / Toreando Pass from Open Guard`
+
+##### Sweeps
+
+- `Closed Guard Sweep Family`
+  - submoves:
+    - `Scissor Sweep`
+    - `Hip Bump Sweep`
+    - `Flower Sweep`
+    - `Double Ankle Sweep`
+    - `Lumberjack Sweep`
+    - `Omoplata Sweep`
+    - `Reverse Scissor Sweep`
+    - `Single Ankle Sweep`
+    - `Waiter / Muscle Sweep`
+- `Butterfly Sweep`
+  - submoves:
+    - `Butterfly Sweep from Butterfly Guard`
+    - `Butterfly Sweep from Open Guard`
+- `Half Guard Sweep Family`
+  - submoves:
+    - `Foot Grab Sweep`
+    - `John Wayne Sweep`
+    - `Leg Hug Gator Roll`
+    - `Old School Sweep`
+    - `Pendulum Sweep`
+    - `Reverse Old School Sweep`
+- `Tripod Sweep`
+  - submoves:
+    - `Tripod Sweep from De La Riva Guard`
+    - `Tripod Sweep from Reverse De La Riva Guard`
+    - `Tripod Sweep from Open Guard`
+
+##### Throws & Takedowns
+
+- `Judo Throw Set`
+  - submoves:
+    - `Deashi Harai`
+    - `Harai Goshi`
+    - `Hiza Guruma`
+    - `Ippon Seoi Nage`
+    - `Kouchi Gari`
+    - `Kosoto Gari`
+    - `Koshi Guruma`
+    - `O Goshi`
+    - `Ouchi Gari`
+    - `Osoto Gari`
+    - `Sasae Tsurikomi Ashi`
+    - `Tai Otoshi`
+    - `Tomoe Nage`
+    - `Uchi Mata`
+- `Wrestling Takedown Set`
+  - submoves:
+    - `Ankle Pick`
+    - `Arm Drag to Takedown`
+    - `Body Lock Takedown`
+    - `Double Leg`
+    - `Duck Under`
+    - `Fireman's Carry`
+    - `Go-Behind`
+    - `High Crotch`
+    - `Inside Trip`
+    - `Knee Tap`
+    - `Outside Trip`
+    - `Single Leg`
+    - `Snap Down`
+
+##### Escapes
+
+- `Mount Escape Family`
+  - submoves:
+    - `Arm / Leg Trap`
+    - `Bridge, Hold, and Shrimp`
+    - `Elbow-Knee Escape`
+    - `Kipping Escape`
+- `Side Control Escape Family`
+  - submoves:
+    - `Bridge and Roll`
+    - `Double Leg`
+    - `Reguard`
+    - `Scarf Hold Back Take`
+    - `Spin Under`
+- `North South Escape Family`
+  - submoves:
+    - `Re-Guard from North South`
+    - `Two on One and Turn from North South`
+- `Triangle Escape Family`
+  - submoves:
+    - `Feet on Top, Move to Ankle Lock`
+    - `Pull Knee to Ground`
+    - `Stack, Rechoke, and Rotate`
+
+#### Captured Inventory Highlights
+
+This is the first-pass source capture of the main move families and notable variations mentioned in the article.
+
+##### Submissions
+
+- `Americana`
+  - from `Half Guard (Top)`, `Mount`, `North South`, `Scarf Hold`, `Side Control`
+- `Anaconda Choke`
+  - from `Front Headlock`, `Sprawl`, `Turtle Position`
+- `Ankle Lock`
+  - from `Reap / Leg Knot`, `Single X Guard`, `Leg Drag`, `Outside Leg Control`, `Inside Leg Control`, `411 / Saddle`
+- `Heel Hook`
+  - from `Inside Leg Control`, `Outside Leg Control`, `Reap / Leg Knot`, `411 / Saddle`, `50/50 Guard`, `Backside 50/50`
+- `Hip Lock`
+  - from `Truck Position`
+- `Kimura`
+  - from `Closed Guard`, `Half Guard Top`, `Half Guard Bottom`, `Mount`, `North South`, `Side Control`, `Turtle Position`
+- `Kneebar`
+  - from `411 / Saddle`, `50/50 Guard`, `Single Leg X Guard`, `Top Half Guard`, `Truck Position`
+- `Lins Lock`
+  - from `411 / Saddle`, `50/50 Guard`
+- `Loop Choke`
+  - from `Butterfly Guard`, `Half Guard (Top)`, `Knee on Belly`, `Turtle Position`
+- `Mir Lock`
+  - from `Closed Guard`, `Mount`, `Side Control`
+- `North South Choke`
+  - from `North South Position`, `Side Control Transition`
+- `Omoplata`
+  - from `Closed Guard`, `De La Riva Guard`, `Half Guard`, `Lasso Guard`, `Mount`, `Open Guard`, `Spider Guard`
+- `Paper-Cutter Choke`
+  - from `Crucifix`, `Knee on Belly`, `North South`, `Side Control`
+- `Rear Naked Choke`
+  - from `Back Control`, `Crucifix`, `Turtle Position`
+- `Straight Ankle Lock`
+  - from `50/50 Guard`, `Ashi Garami`, `Single Leg X Guard`
+- `Tarikoplata`
+  - from `Closed Guard`, `Mount`, `Half Guard`
+- `Toe Hold`
+  - from `411 / Saddle`, `Ashi Garami`, `Half Guard`, `Reap / Leg Knot`, `Side Control`
+- `Triangle Choke`
+  - from `Closed Guard`, `Open Guard`, `De La Riva Guard`, `Lasso Guard`, `Spider Guard`, `Mount`, `Side Control`
+- `Twister`
+  - from `Half Guard`, `Turtle Position`
+- `Von Flue Choke`
+  - from `Side Control`
+- `Wrist Lock`
+  - from `Closed Guard`, `Half Guard (Top)`, `Mount`, `Side Control`
+
+##### Back Takes
+
+- `Arm Drag Back Take`
+  - from `Closed Guard`, `Knee on Belly`
+- `Berimbolo`
+  - from `De La Riva Guard`
+- `Kiss of the Dragon`
+  - from `De La Riva Guard`
+- `Kimura Back Take`
+  - from `Half Guard (Bottom)`
+- `Rolling Back Take`
+  - from `Half Guard (Top)`
+- `Back Take from Leg Drag Position`
+- `Back Take from Truck Position`
+- `Back Take from X Guard`
+
+##### Guard Passes
+
+- `Body Lock Pass`
+  - from `Butterfly Guard`
+- `Toreador / Toreando Pass`
+  - from `Butterfly Guard`, `Open Guard`
+- `High Pass`
+  - from `Closed Guard`
+- `Low Pass (Sao Paulo)`
+  - from `Closed Guard`
+- `Leg Drag`
+  - from `De La Riva Guard`, also as open-guard passing family
+- `Back Step`
+  - from `De La Riva Guard`, `Shin on Shin`
+- `Knee Cut / Knee Slide`
+  - from `Half Guard`
+- `Double Under`
+  - from `Open Guard`
+- `Over Under`
+  - from `Open Guard`
+- `Matador`
+  - from `Open Guard`
+- `Snap Down Leg Drag`
+  - from `Open Guard`
+- `Leg Weave`
+  - from `Reverse DLR`
+
+##### Sweeps
+
+- `Scissor Sweep`
+  - from `Closed Guard`
+- `Hip Bump Sweep`
+  - from `Closed Guard`
+- `Flower Sweep`
+  - from `Closed Guard`
+- `Double Ankle Sweep`
+  - from `Closed Guard`
+- `Lumberjack Sweep`
+  - from `Closed Guard`
+- `Omoplata Sweep`
+  - from `Closed Guard`
+- `Reverse Scissor Sweep`
+  - from `Closed Guard`
+- `Tripod Sweep`
+  - from `De La Riva Guard`, `Reverse DLR`, `Open Guard`
+- `Waiter Sweep`
+  - from `Deep Half Guard`
+- `Old School Sweep`
+  - from `Half Guard`
+- `John Wayne Sweep`
+  - from `Half Guard`
+- `Butterfly Sweep`
+  - from `Butterfly Guard`, `Open Guard`
+- `Sickle Sweep`
+  - from `Spider Guard`
+
+##### Throws And Takedowns
+
+- `Deashi Harai`
+- `Harai Goshi`
+- `Hiza Guruma`
+- `Ippon Seoi Nage`
+- `Kouchi Gari`
+- `Kosoto Gari`
+- `Koshi Guruma`
+- `O Goshi`
+- `Ouchi Gari`
+- `Osoto Gari`
+- `Sasae Tsurikomi Ashi`
+- `Tai Otoshi`
+- `Tomoe Nage`
+- `Uchi Mata`
+- `Ankle Pick`
+- `Arm Drag to Takedown`
+- `Body Lock Takedown`
+- `Double Leg`
+- `Duck Under`
+- `Fireman's Carry`
+- `Go-Behind`
+- `High Crotch`
+- `Inside Trip`
+- `Knee Tap`
+- `Outside Trip`
+- `Single Leg`
+- `Snap Down`
+
+##### Escapes
+
+- `Arm / Leg Trap`
+  - from `Mount`
+- `Elbow-Knee Escape`
+  - from `Mount`
+- `Kipping Escape`
+  - from `Mount`
+- `Re-Guard`
+  - from `North South`, `Side Control`
+- `Bridge and Roll`
+  - from `Side Control`
+- `Legs Up to Armbar Escape`
+  - from `Scarf Hold`
+- `Pull Knee to Ground`
+  - from `Triangle`
+- `Hitchhiker`
+  - from `Armbar`
+- `Put on the Boot`
+  - from `Ankle Lock`
+
+#### Best Use For Us
+
+Use this source to:
+- identify missing move families in the app
+- identify common positional variations
+- build submove trees like `Triangle Choke from Closed Guard`, `Triangle Choke from Mount`, and `Triangle Choke from Side Control`
+
+Do not yet import all 352 items directly.
+Instead, use them to create:
+- `root move`
+- `position-specific submoves`
+- `reaction-based chains`
+
 ## Best Next Workflow
 
 Use this order when continuing the file:
@@ -337,6 +778,12 @@ These notes should stay aligned with the in-app guide page.
 - `Backup JSON` keeps the full machine-readable browser backup for future import or restore work.
 - The Markdown export should include moves with notes, pinned state, or studied state.
 - The JSON backup may include moves that were only opened, because it preserves full saved state such as `lastViewedAt`.
+
+### Direction Notes
+
+- `Primary direction` is the main Judo kuzushi direction to study first for that throw.
+- `Secondary direction` is the common adjacent or follow-on direction that still fits the same throw family when timing or stance shifts.
+- Paired arrows should be treated as study cues, not claims that a throw only works in one exact directional lane.
 
 ### Connection Terms
 

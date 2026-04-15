@@ -17,7 +17,7 @@ export default function GuidePage() {
                 Browse Judo throws by family in the <Link className="text-link" href="/library?practice=Judo">Judo library</Link>.
               </li>
               <li>
-                Kuzushi arrows now mark the primary off-balancing direction for throws like <Link className="text-link" href="/moves/deashi-harai">Deashi Harai</Link> and <Link className="text-link" href="/moves/osoto-gari">Osoto Gari</Link>.
+                Kuzushi arrows now mark the primary and secondary off-balancing directions for throws like <Link className="text-link" href="/moves/deashi-harai">Deashi Harai</Link> and <Link className="text-link" href="/moves/osoto-gari">Osoto Gari</Link>.
               </li>
               <li>
                 Filter by direction in the library with options like <Link className="text-link" href="/library?practice=Judo&kuzushi=forward-right">forward-right ↗</Link> or <Link className="text-link" href="/library?practice=Judo&kuzushi=backward-right">backward-right ↘</Link>.
@@ -28,6 +28,14 @@ export default function GuidePage() {
           <section className="detail-panel">
             <h3>Judo Direction Arrows</h3>
             <ul className="unordered-list">
+              <li><strong>Primary arrow</strong> is the main kuzushi direction to study first.</li>
+              <li><strong>Secondary arrow</strong> is a common adjacent or follow-on direction when stance, timing, or reaction shifts.</li>
+              <li>Read them as study cues, not rigid absolutes for every grip, stance, or entry variation.</li>
+            </ul>
+            <p className="muted-label">
+              Example: paired arrows on <Link className="text-link" href="/moves/deashi-harai">Deashi Harai</Link> and <Link className="text-link" href="/moves/uchi-mata">Uchi Mata</Link> show the main entry direction first and the nearby secondary direction second.
+            </p>
+            <ul className="unordered-list">
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=forward"><strong>↑</strong> forward kuzushi</Link></li>
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=backward"><strong>↓</strong> backward kuzushi</Link></li>
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=left"><strong>←</strong> left kuzushi</Link></li>
@@ -36,7 +44,6 @@ export default function GuidePage() {
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=forward-left"><strong>↖</strong> forward-left kuzushi</Link></li>
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=backward-right"><strong>↘</strong> backward-right kuzushi</Link></li>
               <li><Link className="text-link" href="/library?practice=Judo&kuzushi=backward-left"><strong>↙</strong> backward-left kuzushi</Link></li>
-              <li>These are study cues for likely entry direction, not rigid absolutes for every stance or grip.</li>
             </ul>
           </section>
         </div>

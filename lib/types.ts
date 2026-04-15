@@ -74,6 +74,36 @@ export type DecisionView = {
   fallback?: string;
 };
 
+export type FlowEdgeKind = "attack" | "transition" | "recovery";
+
+export type PositionFlowNode = {
+  id: string;
+  label: string;
+  practice: Practice;
+  summary: string;
+  tags?: string[];
+  moveIds: string[];
+};
+
+export type PositionFlowEdge = {
+  fromNodeId: string;
+  toNodeId: string;
+  trigger: string;
+  label: string;
+  kind: FlowEdgeKind;
+  moveId?: string;
+};
+
+export type PositionFlowCluster = {
+  id: string;
+  title: string;
+  practice: Practice;
+  summary: string;
+  rootNodeId: string;
+  nodes: PositionFlowNode[];
+  edges: PositionFlowEdge[];
+};
+
 export type Move = {
   id: string;
   practice?: Practice;
