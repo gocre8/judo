@@ -230,7 +230,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Jiu-Jitsu",
         summary: "High top control where the opponent must bridge, frame, or give openings while trying to survive.",
         tags: ["Top", "High control"],
-        moveIds: ["mount"],
+        moveIds: ["mount", "cross-grip-mount-control"],
       },
     ],
     edges: [
@@ -313,6 +313,14 @@ export const flowClusters: PositionFlowCluster[] = [
         label: "Settle back to the pin",
         kind: "recovery",
         moveId: "side-control",
+      },
+      {
+        fromNodeId: "bjj-mount-top",
+        toNodeId: "bjj-mount-top",
+        trigger: "The wrist and elbow line open while your base stays stable on top.",
+        label: "Establish cross-grip mount control",
+        kind: "transition",
+        moveId: "cross-grip-mount-control",
       },
       {
         fromNodeId: "bjj-mount-top",

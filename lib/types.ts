@@ -110,6 +110,7 @@ export type Move = {
   name: string;
   japaneseName: string;
   imageSrc?: string;
+  fromPositionIds?: string[];
   primaryKuzushiDirection?: KuzushiDirection;
   secondaryKuzushiDirection?: KuzushiDirection;
   section: MoveSection;

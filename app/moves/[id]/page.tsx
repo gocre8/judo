@@ -108,6 +108,9 @@ export default async function MovePage({ params }: MovePageProps) {
   const worksWellWithMoves = (move.worksWellWithIds ?? [])
     .map((relatedId) => moveMap[relatedId])
     .filter(Boolean);
+  const fromPositionMoves = (move.fromPositionIds ?? [])
+    .map((relatedId) => moveMap[relatedId])
+    .filter(Boolean);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
   const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
@@ -117,6 +120,7 @@ export default async function MovePage({ params }: MovePageProps) {
   const previousMove = moves[(moveIndex - 1 + moves.length) % moves.length];
   const nextMove = moves[(moveIndex + 1) % moves.length];
   const hasSpecificConnections =
+    fromPositionMoves.length > 0 ||
     setupMoves.length > 0 ||
     followUpMoves.length > 0 ||
     counterToMoves.length > 0 ||
@@ -268,6 +272,18 @@ export default async function MovePage({ params }: MovePageProps) {
                 <p className="muted-label">Moves that pair well, branch off, or solve a reaction.</p>
               </div>
             </div>
+            {fromPositionMoves.length > 0 ? (
+              <div className="connection-group">
+                <strong>From positions</strong>
+                <div className="quick-links connection-links">
+                  {fromPositionMoves.map((relatedMove) => (
+                    <Link key={relatedMove.id} className="chip" href={`/moves/${relatedMove.id}`}>
+                      {relatedMove.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : null}
             {setupMoves.length > 0 ? (
               <div className="connection-group">
                 <strong>Sets up</strong>
