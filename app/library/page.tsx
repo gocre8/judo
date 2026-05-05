@@ -31,6 +31,7 @@ function toInitialFilters(params: Record<string, string | string[] | undefined>)
       category === "Hold-down" ||
       category === "Choke" ||
       category === "Arm lock" ||
+      category === "Leg lock" ||
       category === "Sweep" ||
       category === "Pass" ||
       category === "Position" ||

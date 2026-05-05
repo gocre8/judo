@@ -89,6 +89,7 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
             <option value="Hold-down">Hold-downs</option>
             <option value="Choke">Chokes</option>
             <option value="Arm lock">Arm locks</option>
+            <option value="Leg lock">Leg locks</option>
             <option value="Sweep">Sweeps</option>
             <option value="Pass">Passes</option>
             <option value="Position">Positions</option>

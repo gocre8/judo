@@ -4,6 +4,7 @@ export type MoveCategory =
   | "Hold-down"
   | "Choke"
   | "Arm lock"
+  | "Leg lock"
   | "Sweep"
   | "Pass"
   | "Position"
