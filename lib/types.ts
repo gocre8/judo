@@ -157,6 +157,8 @@ export type LibraryFilters = {
   situation: "All" | "Standing" | "Groundwork";
   training: "All" | "Gi" | "No-gi";
   kuzushi: "All" | KuzushiDirection;
+  positionBucketId: string;
+  flowClusterId: string;
   favoritesOnly: boolean;
   studiedOnly: boolean;
 };

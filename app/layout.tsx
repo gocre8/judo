@@ -24,6 +24,7 @@ export default function RootLayout({
               <Link href="/library">Library</Link>
               <Link href="/flows">Flows</Link>
               <Link href="/quiz">Quiz</Link>
+              <Link href="/media">Media</Link>
               <Link href="/progress">Progress</Link>
               <Link href="/guide">Guide</Link>
             </nav>

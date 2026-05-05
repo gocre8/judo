@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { flowClusters } from "@/data/flows";
 import { MoveImage } from "@/components/MoveImage";
 import { moveMap } from "@/data/moves";
+import { getMoveFlowClusters } from "@/lib/flow-utils";
 import { KuzushiDirection, Move, UserMoveProgress } from "@/lib/types";
 
 type MoveCardProps = {
   move: Move;
   progress?: UserMoveProgress;
+  activeFlowClusterId?: string;
 };
 
 function getConnectionPreview(move: Move) {
@@ -67,15 +68,13 @@ function getKuzushiLabel(direction?: KuzushiDirection) {
   return direction ? direction.replace("-", " ") : null;
 }
 
-export function MoveCard({ move, progress }: MoveCardProps) {
+export function MoveCard({ move, progress, activeFlowClusterId }: MoveCardProps) {
   const connectionPreview = getConnectionPreview(move);
   const practice = move.practice ?? "Judo";
-  const flowMembership = flowClusters
-    .filter((cluster) =>
-      cluster.nodes.some((node) => node.moveIds.includes(move.id)),
-    )
-    .map((cluster) => cluster.title)
-    .slice(0, 2);
+  const flowMembership = getMoveFlowClusters(move.id);
+  const activeFlowMembership = activeFlowClusterId
+    ? flowMembership.find((cluster) => cluster.id === activeFlowClusterId)
+    : null;
   const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
   const secondaryKuzushiArrow =
     practice === "Judo" ? getKuzushiArrow(move.secondaryKuzushiDirection) : null;
@@ -112,8 +111,21 @@ export function MoveCard({ move, progress }: MoveCardProps) {
       </div>
       {flowMembership.length > 0 ? (
         <div className="move-card__flow-meta">
-          <span>in flows:</span>
-          <span>{flowMembership.join(" · ")}</span>
+          {activeFlowMembership ? (
+            <span className="move-card__flow-badge move-card__flow-badge--active">Active lane</span>
+          ) : null}
+          {flowMembership.slice(0, 2).map((cluster) => (
+            <span
+              key={cluster.id}
+              className={
+                activeFlowMembership?.id === cluster.id
+                  ? "move-card__flow-badge move-card__flow-badge--active"
+                  : "move-card__flow-badge"
+              }
+            >
+              {cluster.title}
+            </span>
+          ))}
         </div>
       ) : null}
       {connectionPreview.length > 0 ? (

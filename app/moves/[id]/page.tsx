@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MoveActions } from "@/components/MoveActions";
+import { MoveImage } from "@/components/MoveImage";
 import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
 import { moveMap, moves } from "@/data/moves";
@@ -170,6 +171,8 @@ export default async function MovePage({ params }: MovePageProps) {
 
       <section className="detail-grid">
         <div className="section">
+          <MoveImage move={move} variant="detail" />
+
           <article className="detail-panel">
             <h3>Setup</h3>
             <p>{move.setup}</p>

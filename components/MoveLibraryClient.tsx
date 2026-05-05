@@ -4,8 +4,11 @@ import { useDeferredValue, useState } from "react";
 import { LibraryFlowOverview } from "@/components/LibraryFlowOverview";
 import { MoveCard } from "@/components/MoveCard";
 import { CurriculumBoard } from "@/components/CurriculumBoard";
+import { PositionBrowseStrip } from "@/components/PositionBrowseStrip";
 import { moves } from "@/data/moves";
 import { useMoveProgress } from "@/hooks/useMoveProgress";
+import { getFlowClusterById } from "@/lib/flow-utils";
+import { flowClusterMatchesPositionBucket, getPositionBucketById } from "@/lib/position-utils";
 import { defaultFilters, filterMoves } from "@/lib/move-utils";
 import { LibraryFilters } from "@/lib/types";
 
@@ -20,6 +23,8 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
   });
   const deferredSearch = useDeferredValue(filters.search);
   const { progress } = useMoveProgress();
+  const activePositionBucket = getPositionBucketById(filters.positionBucketId);
+  const activeFlowCluster = getFlowClusterById(filters.flowClusterId);
 
   const filteredMoves = filterMoves(
     moves,
@@ -37,6 +42,12 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
         <div className="section-heading">
           <div>
             <h2>Library</h2>
+            {activePositionBucket ? (
+              <p className="muted-label">Position active: {activePositionBucket.label}</p>
+            ) : null}
+            {activeFlowCluster ? (
+              <p className="muted-label">Flow lane active: {activeFlowCluster.title}</p>
+            ) : null}
           </div>
           <button
             type="button"
@@ -51,7 +62,6 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
             className="search-input"
             type="search"
             placeholder="Search throws, grappling, Japanese names, gi, no-gi..."
-            
             value={filters.search}
             onChange={(event) => setFilter("search", event.target.value)}
             aria-label="Search moves"
@@ -154,16 +164,68 @@ export function MoveLibraryClient({ initialFilters }: MoveLibraryClientProps) {
           >
             Studied only
           </button>
+          {activeFlowCluster ? (
+            <button
+              type="button"
+              className="action-pill action-pill--ghost"
+              onClick={() => setFilter("flowClusterId", "")}
+            >
+              Clear flow lane
+            </button>
+          ) : null}
         </div>
       </section>
 
+      <PositionBrowseStrip
+        activePositionBucketId={filters.positionBucketId}
+        onSelectPositionBucket={(bucketId) => {
+          setFilters((current) => {
+            const activeCluster = current.flowClusterId
+              ? getFlowClusterById(current.flowClusterId)
+              : null;
+
+            return {
+              ...current,
+              positionBucketId: bucketId,
+              flowClusterId:
+                activeCluster && (!bucketId || flowClusterMatchesPositionBucket(activeCluster, bucketId))
+                  ? current.flowClusterId
+                  : "",
+            };
+          });
+        }}
+      />
       <CurriculumBoard />
-      <LibraryFlowOverview />
+      <LibraryFlowOverview
+        activeFlowClusterId={filters.flowClusterId}
+        activePositionBucketId={filters.positionBucketId}
+        onSelectFlowCluster={(clusterId) => setFilter("flowClusterId", clusterId)}
+      />
+
+      <section className="detail-panel library-results-bar">
+        <div>
+          <h3>{filteredMoves.length} moves showing</h3>
+          <p>
+            {activePositionBucket && activeFlowCluster
+              ? `${activePositionBucket.label} and ${activeFlowCluster.title} are both narrowing this study set.`
+              : activePositionBucket
+                ? `${activePositionBucket.label} is filtering both moves and visible flow lanes.`
+                : activeFlowCluster
+                  ? `${activeFlowCluster.practice} lane filtered by root position and likely branches.`
+                  : "Use filters or flow lanes to narrow the study set."}
+          </p>
+        </div>
+      </section>
 
       {filteredMoves.length > 0 ? (
         <section className="move-grid">
           {filteredMoves.map((move) => (
-            <MoveCard key={move.id} move={move} progress={progress[move.id]} />
+            <MoveCard
+              key={move.id}
+              move={move}
+              progress={progress[move.id]}
+              activeFlowClusterId={filters.flowClusterId}
+            />
           ))}
         </section>
       ) : (

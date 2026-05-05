@@ -1,4 +1,6 @@
 import { MoveLibraryClient } from "@/components/MoveLibraryClient";
+import { flowClusters } from "@/data/flows";
+import { positionBuckets } from "@/lib/position-utils";
 import { LibraryFilters } from "@/lib/types";
 
 type LibraryPageProps = {
@@ -18,6 +20,8 @@ function toInitialFilters(params: Record<string, string | string[] | undefined>)
   const category = getSingleParam(params.category);
   const search = getSingleParam(params.search);
   const training = getSingleParam(params.training);
+  const positionBucketId = getSingleParam(params.position);
+  const flowClusterId = getSingleParam(params.flow);
 
   return {
     practice: practice === "Judo" || practice === "Jiu-Jitsu" ? practice : "All",
@@ -39,6 +43,8 @@ function toInitialFilters(params: Record<string, string | string[] | undefined>)
       situation === "Standing" || situation === "Groundwork" ? situation : "All",
     training:
       training === "Gi" || training === "No-gi" ? training : "All",
+    positionBucketId: positionBuckets.some((bucket) => bucket.id === positionBucketId) ? positionBucketId ?? "" : "",
+    flowClusterId: flowClusters.some((cluster) => cluster.id === flowClusterId) ? flowClusterId ?? "" : "",
   };
 }
 

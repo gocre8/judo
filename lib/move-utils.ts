@@ -1,4 +1,6 @@
 import { moves } from "@/data/moves";
+import { moveBelongsToFlowCluster } from "@/lib/flow-utils";
+import { moveMatchesPositionBucket } from "@/lib/position-utils";
 import { LibraryFilters, Move, MoveProgressMap } from "@/lib/types";
 
 export const defaultFilters: LibraryFilters = {
@@ -9,6 +11,8 @@ export const defaultFilters: LibraryFilters = {
   situation: "All",
   training: "All",
   kuzushi: "All",
+  positionBucketId: "",
+  flowClusterId: "",
   favoritesOnly: false,
   studiedOnly: false,
 };
@@ -46,6 +50,12 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       filters.kuzushi === "All" ||
       move.primaryKuzushiDirection === filters.kuzushi ||
       move.secondaryKuzushiDirection === filters.kuzushi;
+    const matchesPositionBucket =
+      filters.positionBucketId.length === 0 ||
+      moveMatchesPositionBucket(move, filters.positionBucketId);
+    const matchesFlowCluster =
+      filters.flowClusterId.length === 0 ||
+      moveBelongsToFlowCluster(move.id, filters.flowClusterId);
     const matchesFavorite = !filters.favoritesOnly || moveProgress?.favorite;
     const matchesStudied = !filters.studiedOnly || moveProgress?.studied;
 
@@ -57,6 +67,8 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
       matchesSituation &&
       matchesTraining &&
       matchesKuzushi &&
+      matchesPositionBucket &&
+      matchesFlowCluster &&
       matchesFavorite &&
       matchesStudied
     );
