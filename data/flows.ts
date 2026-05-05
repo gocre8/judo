@@ -214,7 +214,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Jiu-Jitsu",
         summary: "Cross-body top control where the next choice is to pin, climb, or force a mobile reaction.",
         tags: ["Top", "Pin"],
-        moveIds: ["side-control", "super-chill-cross-side", "paper-cutter-choke", "cross-side-crucifix", "cross-side-wrist-lock"],
+        moveIds: ["side-control", "north-south", "kesa-gatame", "super-chill-cross-side", "paper-cutter-choke", "cross-side-crucifix", "cross-side-wrist-lock"],
       },
       {
         id: "bjj-knee-on-belly-top",
@@ -265,6 +265,22 @@ export const flowClusters: PositionFlowCluster[] = [
         label: "Tighten to Super Chill cross side",
         kind: "transition",
         moveId: "super-chill-cross-side",
+      },
+      {
+        fromNodeId: "bjj-side-control-top",
+        toNodeId: "bjj-side-control-top",
+        trigger: "The shoulders stay pinned and you can circle around the head without losing the chest connection.",
+        label: "Walk around to north-south",
+        kind: "transition",
+        moveId: "north-south",
+      },
+      {
+        fromNodeId: "bjj-side-control-top",
+        toNodeId: "bjj-side-control-top",
+        trigger: "The head-and-arm line is trapped and the diagonal pin is stronger than staying square.",
+        label: "Switch to kesa gatame",
+        kind: "transition",
+        moveId: "kesa-gatame",
       },
       {
         fromNodeId: "bjj-side-control-top",
@@ -657,7 +673,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Judo",
         summary: "Top control is already established from the side and the decision is which pin structure best controls the escape.",
         tags: ["Groundwork", "Osaekomi"],
-        moveIds: ["kesa-gatame", "kata-gatame"],
+        moveIds: ["kesa-gatame", "kata-gatame", "north-south"],
       },
       {
         id: "judo-arm-isolation",
@@ -673,7 +689,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Judo",
         summary: "The finish is not there yet, so the priority returns to stable top control and keeping the opponent flat.",
         tags: ["Groundwork", "Control"],
-        moveIds: ["kesa-gatame", "kata-gatame"],
+        moveIds: ["kesa-gatame", "kata-gatame", "north-south"],
       },
     ],
     edges: [
@@ -692,6 +708,14 @@ export const flowClusters: PositionFlowCluster[] = [
         label: "Switch pin pressure and re-settle",
         kind: "transition",
         moveId: "kata-gatame",
+      },
+      {
+        fromNodeId: "judo-side-pin",
+        toNodeId: "judo-repin",
+        trigger: "The shoulders stay flat, but circling around the head gives a cleaner way to kill the turn.",
+        label: "Circle to north-south pressure",
+        kind: "transition",
+        moveId: "north-south",
       },
       {
         fromNodeId: "judo-arm-isolation",

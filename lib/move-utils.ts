@@ -1,6 +1,7 @@
 import { moves } from "@/data/moves";
 import { moveBelongsToFlowCluster } from "@/lib/flow-utils";
 import { moveMatchesPositionBucket } from "@/lib/position-utils";
+import { getMovePractices, moveMatchesPractice } from "@/lib/practice-utils";
 import { LibraryFilters, Move, MoveProgressMap } from "@/lib/types";
 
 export const defaultFilters: LibraryFilters = {
@@ -23,10 +24,11 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
   return allMoves.filter((move) => {
     const moveProgress = progress[move.id];
     const practice = move.practice ?? "Judo";
+    const practices = getMovePractices(move);
     const matchesSearch =
       searchNeedle.length === 0 ||
       [
-        practice,
+        ...practices,
         move.name,
         move.japaneseName,
         move.shortDescription,
@@ -38,7 +40,8 @@ export function filterMoves(allMoves: Move[], filters: LibraryFilters, progress:
         .join(" ")
         .toLowerCase()
         .includes(searchNeedle);
-    const matchesPractice = filters.practice === "All" || practice === filters.practice;
+    const matchesPractice =
+      filters.practice === "All" || moveMatchesPractice(move, filters.practice);
     const matchesCategory = filters.category === "All" || move.category === filters.category;
     const matchesDifficulty =
       filters.difficulty === "All" || move.difficulty === filters.difficulty;

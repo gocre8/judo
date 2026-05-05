@@ -5,6 +5,7 @@ import { MoveImage } from "@/components/MoveImage";
 import { MoveNotes } from "@/components/MoveNotes";
 import { TechniqueDiagram } from "@/components/TechniqueDiagram";
 import { moveMap, moves } from "@/data/moves";
+import { getMovePracticeLabel } from "@/lib/practice-utils";
 import { DecisionCue, KuzushiDirection, MoveResource } from "@/lib/types";
 
 type MovePageProps = {
@@ -86,6 +87,21 @@ function getKuzushiLabel(direction?: KuzushiDirection) {
   return direction ? direction.replace("-", " ") : null;
 }
 
+function getUniqueRelatedMoves(ids: string[] | undefined, excludedIds: Set<string>) {
+  return (ids ?? [])
+    .filter((relatedId, index, allIds) => allIds.indexOf(relatedId) === index)
+    .filter((relatedId) => {
+      if (excludedIds.has(relatedId)) {
+        return false;
+      }
+
+      excludedIds.add(relatedId);
+      return true;
+    })
+    .map((relatedId) => moveMap[relatedId])
+    .filter(Boolean);
+}
+
 export default async function MovePage({ params }: MovePageProps) {
   const { id } = await params;
   const move = moveMap[id];
@@ -94,25 +110,18 @@ export default async function MovePage({ params }: MovePageProps) {
     notFound();
   }
 
-  const alternativeMoves = move.alternativeMoveIds
-    .map((relatedId) => moveMap[relatedId])
-    .filter(Boolean);
-  const alternativeMoveIds = new Set(alternativeMoves.map((relatedMove) => relatedMove.id));
-  const relatedMoves = move.relatedMoveIds
-    .map((relatedId) => moveMap[relatedId])
-    .filter((relatedMove) => Boolean(relatedMove) && !alternativeMoveIds.has(relatedMove.id));
-  const setupMoves = (move.setupForIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
-  const followUpMoves = (move.followUpIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
-  const counterToMoves = (move.counterToIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
-  const counteredByMoves = (move.counteredByIds ?? []).map((relatedId) => moveMap[relatedId]).filter(Boolean);
-  const worksWellWithMoves = (move.worksWellWithIds ?? [])
-    .map((relatedId) => moveMap[relatedId])
-    .filter(Boolean);
-  const fromPositionMoves = (move.fromPositionIds ?? [])
-    .map((relatedId) => moveMap[relatedId])
-    .filter(Boolean);
+  const seenConnectionIds = new Set<string>();
+  const fromPositionMoves = getUniqueRelatedMoves(move.fromPositionIds, seenConnectionIds);
+  const setupMoves = getUniqueRelatedMoves(move.setupForIds, seenConnectionIds);
+  const followUpMoves = getUniqueRelatedMoves(move.followUpIds, seenConnectionIds);
+  const counterToMoves = getUniqueRelatedMoves(move.counterToIds, seenConnectionIds);
+  const counteredByMoves = getUniqueRelatedMoves(move.counteredByIds, seenConnectionIds);
+  const worksWellWithMoves = getUniqueRelatedMoves(move.worksWellWithIds, seenConnectionIds);
+  const alternativeMoves = getUniqueRelatedMoves(move.alternativeMoveIds, seenConnectionIds);
+  const relatedMoves = getUniqueRelatedMoves(move.relatedMoveIds, seenConnectionIds);
   const embeddedVideo = move.resources.find((resource) => getYouTubeEmbedUrl(resource));
   const practice = move.practice ?? "Judo";
+  const practiceLabel = getMovePracticeLabel(move);
   const kuzushiArrow = practice === "Judo" ? getKuzushiArrow(move.primaryKuzushiDirection) : null;
   const secondaryKuzushiArrow =
     practice === "Judo" ? getKuzushiArrow(move.secondaryKuzushiDirection) : null;
@@ -153,7 +162,7 @@ export default async function MovePage({ params }: MovePageProps) {
               ) : null}
             </div>
             <p className="muted-label">{move.japaneseName}</p>
-            <p className="muted-label">{practice} · {move.section} · {move.family}</p>
+            <p className="muted-label">{practiceLabel} · {move.section} · {move.family}</p>
           </div>
           <div className="detail-hero__nav" aria-label="Move navigation">
             <Link className="chip detail-hero__nav-button" href={`/moves/${previousMove.id}`} aria-label={`Previous move: ${previousMove.name}`}>

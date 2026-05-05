@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MoveImage } from "@/components/MoveImage";
 import { moveMap } from "@/data/moves";
 import { getMoveFlowClusters } from "@/lib/flow-utils";
+import { getMovePracticeLabel } from "@/lib/practice-utils";
 import { KuzushiDirection, Move, UserMoveProgress } from "@/lib/types";
 
 type MoveCardProps = {
@@ -11,7 +12,9 @@ type MoveCardProps = {
 };
 
 function getConnectionPreview(move: Move) {
+  const seenIds = new Set<string>();
   const groups = [
+    { label: "From", ids: move.fromPositionIds ?? [] },
     { label: "Sets up", ids: move.setupForIds ?? [] },
     { label: "Follows", ids: move.followUpIds ?? [] },
     { label: "Counters", ids: move.counterToIds ?? [] },
@@ -22,6 +25,14 @@ function getConnectionPreview(move: Move) {
       label: group.label,
       moves: group.ids
         .filter((moveId, index, allIds) => allIds.indexOf(moveId) === index)
+        .filter((moveId) => {
+          if (seenIds.has(moveId)) {
+            return false;
+          }
+
+          seenIds.add(moveId);
+          return true;
+        })
         .map((moveId) => moveMap[moveId])
         .filter(Boolean)
         .slice(0, 2),
@@ -71,6 +82,7 @@ function getKuzushiLabel(direction?: KuzushiDirection) {
 export function MoveCard({ move, progress, activeFlowClusterId }: MoveCardProps) {
   const connectionPreview = getConnectionPreview(move);
   const practice = move.practice ?? "Judo";
+  const practiceLabel = getMovePracticeLabel(move);
   const flowMembership = getMoveFlowClusters(move.id);
   const activeFlowMembership = activeFlowClusterId
     ? flowMembership.find((cluster) => cluster.id === activeFlowClusterId)
@@ -97,7 +109,7 @@ export function MoveCard({ move, progress, activeFlowClusterId }: MoveCardProps)
             ) : null}
           </div>
           <p className="muted-label">{move.japaneseName}</p>
-          <p className="muted-label">{move.family}</p>
+          <p className="muted-label">{practiceLabel} · {move.family}</p>
         </div>
         <div className="pill-row" aria-label="Progress markers">
           {progress?.favorite ? <span>Favorite</span> : null}

@@ -1,5 +1,6 @@
 import { flowClusters } from "@/data/flows";
 import { moves } from "@/data/moves";
+import { moveMatchesPractice } from "@/lib/practice-utils";
 import { PositionFlowCluster, Practice } from "@/lib/types";
 
 export type PositionBucket = {
@@ -66,42 +67,42 @@ export function moveMatchesPositionBucket(
     return true;
   }
 
-  const practice = move.practice ?? "Judo";
-
   switch (bucketId) {
     case "standing":
       return move.situationTags.includes("Standing");
     case "judo-newaza":
-      return practice === "Judo" && move.situationTags.includes("Groundwork");
+      return moveMatchesPractice(move, "Judo") && move.situationTags.includes("Groundwork");
     case "closed-guard":
       return (
-        practice === "Jiu-Jitsu" &&
+        moveMatchesPractice(move, "Jiu-Jitsu") &&
         (move.family === "Closed guard" ||
           move.situationTags.includes("Closed guard") ||
           move.id === "closed-guard")
       );
     case "half-guard":
       return (
-        practice === "Jiu-Jitsu" &&
+        moveMatchesPractice(move, "Jiu-Jitsu") &&
         (move.family === "Half guard" || move.situationTags.includes("Half guard"))
       );
     case "side-control":
       return (
-        practice === "Jiu-Jitsu" &&
+        moveMatchesPractice(move, "Jiu-Jitsu") &&
         (move.family === "Side control" ||
           move.family === "Side-control escapes" ||
-          move.situationTags.includes("Side control bottom"))
+          move.situationTags.includes("Side control bottom") ||
+          move.id === "kesa-gatame" ||
+          move.id === "north-south")
       );
     case "mount":
       return (
-        practice === "Jiu-Jitsu" &&
+        moveMatchesPractice(move, "Jiu-Jitsu") &&
         (move.family === "Mount" ||
           move.family === "Mount escapes" ||
           move.situationTags.includes("Mount bottom"))
       );
     case "back-control":
       return (
-        practice === "Jiu-Jitsu" &&
+        moveMatchesPractice(move, "Jiu-Jitsu") &&
         (move.family === "Back control" ||
           move.family === "Back escapes" ||
           move.situationTags.includes("Back control bottom"))

@@ -107,6 +107,7 @@ export type PositionFlowCluster = {
 export type Move = {
   id: string;
   practice?: Practice;
+  alsoPracticedIn?: Practice[];
   name: string;
   japaneseName: string;
   imageSrc?: string;
