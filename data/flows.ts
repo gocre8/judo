@@ -115,7 +115,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Jiu-Jitsu",
         summary: "You have posture control and are waiting for the opponent's base or arm pattern to change.",
         tags: ["Bottom", "Guard", "Gi", "No-gi"],
-        moveIds: ["closed-guard", "scissor-sweep", "hip-bump-sweep", "triangle-choke", "closed-guard-armbar"],
+        moveIds: ["closed-guard", "scissor-sweep", "hip-bump-sweep", "butterfly-sweep", "triangle-choke", "closed-guard-armbar"],
       },
       {
         id: "bjj-situp-lane",
@@ -150,6 +150,14 @@ export const flowClusters: PositionFlowCluster[] = [
         label: "Scissor sweep to top",
         kind: "attack",
         moveId: "scissor-sweep",
+      },
+      {
+        fromNodeId: "bjj-closed-guard-bottom",
+        toNodeId: "bjj-top-after-sweep",
+        trigger: "The butterfly hook is in place and the arm scoop gets underneath the shoulder line.",
+        label: "Butterfly sweep to top",
+        kind: "attack",
+        moveId: "butterfly-sweep",
       },
       {
         fromNodeId: "bjj-closed-guard-bottom",
@@ -206,7 +214,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Jiu-Jitsu",
         summary: "You have a passing lane and are deciding whether the opponent gives you a knee slice, leg drag, or reset.",
         tags: ["Top", "Passing", "Gi", "No-gi"],
-        moveIds: ["knee-cut-pass", "leg-drag"],
+        moveIds: ["knee-cut-pass", "leg-drag", "kimura-from-turtle"],
       },
       {
         id: "bjj-side-control-top",
@@ -542,7 +550,7 @@ export const flowClusters: PositionFlowCluster[] = [
         practice: "Judo",
         summary: "The defensive reaction changes the angle and opens the line for a turning hand or leg throw.",
         tags: ["Standing", "Turn entry"],
-        moveIds: ["uchi-mata", "tai-otoshi"],
+        moveIds: ["uchi-mata", "tai-otoshi", "seoi-nage", "seoi-otoshi"],
       },
     ],
     edges: [
@@ -577,6 +585,14 @@ export const flowClusters: PositionFlowCluster[] = [
         label: "Change to a turning finish",
         kind: "transition",
         moveId: "tai-otoshi",
+      },
+      {
+        fromNodeId: "judo-turn-throw-lane",
+        toNodeId: "judo-turn-throw-lane",
+        trigger: "The opponent reacts hard to the turn or a foot-sweep threat gives you the drop-under lane.",
+        label: "Drop into seoi otoshi",
+        kind: "attack",
+        moveId: "seoi-otoshi",
       },
       {
         fromNodeId: "judo-turn-throw-lane",
