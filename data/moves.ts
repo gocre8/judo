@@ -2422,7 +2422,20 @@ export const moves: Move[] = [
       fallback: "If the arm trap is loose, keep the pin and rebuild the control instead of throwing the legs blindly.",
     },
     diagram: { pose: "choke", cue: "Trap both arms before the leg swing starts.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Side-control triangle reference",
+        url: "https://www.jiujitsubrotherhood.com/blogs/blog/side-control-triangle",
+        source: "Jiu Jitsu Brotherhood",
+        kind: "reference",
+      },
+      {
+        label: "North-south position reference",
+        url: "https://www.bjj.tips/positions/north-south",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "mounted-armbar",
@@ -2458,7 +2471,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["mount", "cross-grip-mount-control", "americana-from-mount", "juji-gatame"],
     alternativeMoveIds: ["americana-from-mount", "cross-grip-mount-control"],
     diagram: { pose: "arm-lock", cue: "Climb high before you swing the leg.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Mounted armbar demo",
+        url: "https://www.youtube.com/watch?v=GshEzcqlUbY",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "Mount position reference",
+        url: "https://www.bjj.tips/positions/mount",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "americana-from-mount",
@@ -2494,7 +2520,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["mount", "mounted-armbar", "cross-grip-mount-control"],
     alternativeMoveIds: ["mounted-armbar", "cross-grip-mount-control"],
     diagram: { pose: "arm-lock", cue: "Keep the wrist pinned while the elbow rises.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Americana from mount demo",
+        url: "https://www.youtube.com/watch?v=5M1wkbaOYUM",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "Mount position reference",
+        url: "https://www.bjj.tips/positions/mount",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "ezekiel-choke",
@@ -2530,7 +2569,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["mount", "cross-collar-choke-from-mount", "cross-grip-mount-control"],
     alternativeMoveIds: ["cross-collar-choke-from-mount", "mounted-armbar"],
     diagram: { pose: "choke", cue: "Build the sleeve grip before driving the forearm across.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Ezekiel choke reference",
+        url: "https://bjj.tv/how-to-do-an-ezekiel-choke/",
+        source: "BJJTV",
+        kind: "reference",
+      },
+      {
+        label: "Mount position reference",
+        url: "https://www.bjj.tips/positions/mount",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "cross-collar-choke-from-mount",
@@ -2566,7 +2618,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["mount", "ezekiel-choke", "cross-grip-mount-control"],
     alternativeMoveIds: ["ezekiel-choke", "mounted-armbar"],
     diagram: { pose: "choke", cue: "Get both grips deep before you finish.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Cross-collar choke from mount demo",
+        url: "https://www.youtube.com/watch?v=n7I43wdRHwk",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "Mount position reference",
+        url: "https://www.bjj.tips/positions/mount",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "kesa-leg-americana",
@@ -2603,7 +2668,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "kesa-leg-straight-armbar"],
     alternativeMoveIds: ["kesa-leg-straight-armbar", "juji-gatame"],
     diagram: { pose: "arm-lock", cue: "Trap the bent elbow before you extend the hips.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kesa gatame attacks reference",
+        url: "https://www.youtube.com/watch?v=OeyuqJgQ8yI",
+        source: "YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kesa-leg-straight-armbar",
@@ -2640,7 +2712,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "kesa-leg-americana", "juji-gatame"],
     alternativeMoveIds: ["kesa-leg-americana", "juji-gatame"],
     diagram: { pose: "arm-lock", cue: "Change the leg position as the arm straightens.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kesa gatame attacks reference",
+        url: "https://www.youtube.com/watch?v=OeyuqJgQ8yI",
+        source: "YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kesa-head-and-arm-choke",
@@ -2677,7 +2756,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "kesa-leg-americana", "kata-gatame"],
     alternativeMoveIds: ["kesa-leg-americana", "kata-gatame"],
     diagram: { pose: "choke", cue: "Use the head push to lock the neck-and-arm line.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kesa head-and-arm choke demo",
+        url: "https://www.youtube.com/watch?v=YVq4esK1FLc",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "Kesa gatame attacks reference",
+        url: "https://www.youtube.com/watch?v=OeyuqJgQ8yI",
+        source: "YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "kesa-kneebar",
@@ -2714,7 +2806,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "north-south"],
     alternativeMoveIds: ["kesa-gatame"],
     diagram: { pose: "arm-lock", cue: "Trap the leg line as they roll under.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kesa gatame attacks reference",
+        url: "https://www.youtube.com/watch?v=OeyuqJgQ8yI",
+        source: "YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "north-south-triangle",
@@ -2750,7 +2849,14 @@ export const moves: Move[] = [
     relatedMoveIds: ["north-south", "side-control-triangle", "north-south-choke"],
     alternativeMoveIds: ["north-south-choke", "triangle-choke"],
     diagram: { pose: "choke", cue: "Stretch long and low instead of just squeezing.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "North-south position reference",
+        url: "https://www.bjj.tips/positions/north-south",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "north-south-choke",
@@ -2786,7 +2892,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["north-south", "north-south-triangle", "side-control"],
     alternativeMoveIds: ["north-south-triangle", "paper-cutter-choke"],
     diagram: { pose: "choke", cue: "Get the bicep to the neck before moving backward.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "North-south choke demo",
+        url: "https://www.youtube.com/watch?v=VkI7wuhN2Ps",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "North-south position reference",
+        url: "https://www.bjj.tips/positions/north-south",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "seoi-otoshi",
@@ -2821,7 +2940,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["seoi-nage", "tai-otoshi", "deashi-harai"],
     alternativeMoveIds: ["seoi-nage", "tai-otoshi"],
     diagram: { pose: "throw-entry", cue: "Threaten the sweep first, then drop under the center.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kodokan seoi-otoshi reference",
+        url: "https://kdkjd.org/seoi-otoshi-hand-technique/",
+        source: "Kodokan Global",
+        kind: "reference",
+      },
+      {
+        label: "Kodokan definitions of judo techniques",
+        url: "https://kdkjudo.org/wp-content/uploads/2024/07/Kodokan-Definitions-of-Judo-Techniques-01.10.2022.pdf",
+        source: "Kodokan",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "okuri-eri-jime",
@@ -2857,7 +2989,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["kesa-gatame", "kata-gatame", "cross-collar-choke-from-mount"],
     alternativeMoveIds: ["cross-collar-choke-from-mount", "paper-cutter-choke"],
     diagram: { pose: "choke", cue: "Get the first grip deep and keep the wrists straight.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Okuri eri jime reference",
+        url: "https://gs-brain.org/Judo/techniques/Okuri-eri-jime",
+        source: "GS Brain",
+        kind: "reference",
+      },
+      {
+        label: "Judo newaza choke reference",
+        url: "https://judoinfo.com/shime.htm",
+        source: "Judo Info",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "butterfly-sweep",
@@ -2893,7 +3038,20 @@ export const moves: Move[] = [
     relatedMoveIds: ["closed-guard", "half-guard-bottom", "hip-bump-sweep", "scissor-sweep"],
     alternativeMoveIds: ["hip-bump-sweep", "scissor-sweep"],
     diagram: { pose: "ground-pin", cue: "The arm scoop and hook lift fire together.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Butterfly sweep demo",
+        url: "https://www.youtube.com/watch?v=v7ZwfJRFDS8",
+        source: "YouTube",
+        kind: "video",
+      },
+      {
+        label: "Butterfly guard reference",
+        url: "https://www.bjj.tips/positions/butterfly-guard",
+        source: "BJJ Tips",
+        kind: "reference",
+      },
+    ],
   },
   {
     id: "kimura-from-turtle",
@@ -2949,7 +3107,14 @@ export const moves: Move[] = [
       fallback: "If the shoulder is no longer pinned, rebuild the top pressure before trying to roll the turtle again.",
     },
     diagram: { pose: "arm-lock", cue: "Chest weight keeps the turtle folded while the leg pick tips them.", markers: [] },
-    resources: [],
+    resources: [
+      {
+        label: "Kimura from turtle demo",
+        url: "https://www.youtube.com/watch?v=GyR2TP4hjB0",
+        source: "YouTube",
+        kind: "video",
+      },
+    ],
   },
   {
     id: "upa-escape",
