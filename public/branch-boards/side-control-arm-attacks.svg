@@ -1,0 +1,23 @@
+<svg width="720" height="1080" viewBox="0 0 720 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="1080" rx="36" fill="#F3EFE7"/>
+  <rect x="36" y="36" width="648" height="1008" rx="28" fill="#FFFDF8" stroke="#D9D0C3" stroke-width="4"/>
+  <rect x="88" y="92" width="544" height="188" rx="24" fill="#E7DCCE"/>
+  <text x="118" y="156" fill="#382E27" font-family="Avenir Next, Segoe UI, sans-serif" font-size="36" font-weight="700">Side-Control Arm Attacks</text>
+  <text x="118" y="204" fill="#6F6459" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">Americana • Kimura • straight armbar</text>
+  <text x="118" y="242" fill="#6F6459" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">same pin, different arm shapes</text>
+  <ellipse cx="360" cy="628" rx="248" ry="162" fill="#E8D7C5"/>
+  <circle cx="284" cy="616" r="48" fill="#DDBA9A"/>
+  <rect x="244" y="654" width="232" height="60" rx="30" fill="#1E1C1A"/>
+  <circle cx="430" cy="540" r="48" fill="#DDBA9A"/>
+  <rect x="396" y="578" width="68" height="156" rx="30" fill="#F6F2EC" stroke="#D4C7B8" stroke-width="4"/>
+  <path d="M214 694C250 642 292 612 334 606" stroke="#B85D3B" stroke-width="16" stroke-linecap="round"/>
+  <path d="M510 666C470 620 430 594 388 592" stroke="#B85D3B" stroke-width="16" stroke-linecap="round"/>
+  <rect x="92" y="830" width="154" height="84" rx="20" fill="#F7F2EA" stroke="#D8CCBE" stroke-width="4"/>
+  <rect x="282" y="830" width="154" height="84" rx="20" fill="#F7F2EA" stroke="#D8CCBE" stroke-width="4"/>
+  <rect x="472" y="830" width="154" height="84" rx="20" fill="#F7F2EA" stroke="#D8CCBE" stroke-width="4"/>
+  <text x="122" y="880" fill="#7F301C" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Americana</text>
+  <text x="332" y="880" fill="#7F301C" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Kimura</text>
+  <text x="494" y="880" fill="#7F301C" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Armbar</text>
+  <text x="88" y="976" fill="#7F301C" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="700">Branch art</text>
+  <text x="88" y="1014" fill="#6F6459" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22">Shared study board for side-control arm-isolation chains until technique-specific art is added</text>
+</svg>
