@@ -1,0 +1,21 @@
+<svg width="720" height="1080" viewBox="0 0 720 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="1080" rx="36" fill="#F3EFE7"/>
+  <rect x="36" y="36" width="648" height="1008" rx="28" fill="#FFFDF8" stroke="#D9D0C3" stroke-width="4"/>
+  <rect x="88" y="92" width="544" height="188" rx="24" fill="#DDE5E3"/>
+  <text x="118" y="156" fill="#263633" font-family="Avenir Next, Segoe UI, sans-serif" font-size="36" font-weight="700">North-South</text>
+  <text x="118" y="204" fill="#5E6E6A" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">shoulder pin • head control • choke lanes</text>
+  <text x="118" y="242" fill="#5E6E6A" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">triangle angle and body-backward finishes</text>
+  <ellipse cx="360" cy="634" rx="246" ry="160" fill="#E1D6C8"/>
+  <circle cx="360" cy="692" r="48" fill="#DDBA9A"/>
+  <rect x="282" y="640" width="156" height="54" rx="27" fill="#F6F2EC" stroke="#D4C7B8" stroke-width="4"/>
+  <circle cx="360" cy="534" r="48" fill="#DDBA9A"/>
+  <rect x="328" y="566" width="64" height="154" rx="30" fill="#1E1C1A"/>
+  <path d="M246 590C286 560 330 546 374 548" stroke="#2F6D63" stroke-width="16" stroke-linecap="round"/>
+  <path d="M474 590C434 560 392 546 350 548" stroke="#2F6D63" stroke-width="16" stroke-linecap="round"/>
+  <rect x="118" y="828" width="224" height="92" rx="22" fill="#EEF3F2" stroke="#CBD7D5" stroke-width="4"/>
+  <rect x="378" y="828" width="224" height="92" rx="22" fill="#EEF3F2" stroke="#CBD7D5" stroke-width="4"/>
+  <text x="162" y="882" fill="#21534B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">North-South Choke</text>
+  <text x="424" y="882" fill="#21534B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Triangle Lane</text>
+  <text x="88" y="976" fill="#21534B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="700">Branch art</text>
+  <text x="88" y="1014" fill="#5E6E6A" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22">Shared study board for north-south control, choke pressure, and triangle transitions</text>
+</svg>
