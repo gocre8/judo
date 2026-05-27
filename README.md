@@ -98,8 +98,9 @@ npm run build
 Research and staging notes live in:
 
 - `research/technique-staging.md`
+- `research/image-backlog.md`
 
-That file captures positional hierarchy work, action-potential modeling, Judo directionality notes, BJJ structural notes, and source assumptions used to guide the library.
+Those files capture positional hierarchy work, action-potential modeling, Judo directionality notes, BJJ structural notes, media assumptions, and image backlog priorities used to guide the library.
 
 ## Good next steps
 
